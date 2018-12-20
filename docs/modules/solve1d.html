@@ -1,0 +1,565 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>solve1d.py &#8212; Weathering Mediated Erosion  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="solve1p1d.py" href="solve1p1d.html" />
+    <link rel="prev" title="theory.py" href="theory.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-wme.solve1d">
+<span id="solve1d-py"></span><h1><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code><a class="headerlink" href="#module-wme.solve1d" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>Module for performing finite-difference solution of weathering-driven
+weakening of a 1d bedrock surface half-space and its concomitant erosion.</p>
+<p>The moving-boundary problem is solved using a continuous-valued
+distance (from the erosion front) function that tracks motion with sub-grid
+resolution. Upwind differencing and explicit Euler methods are employed.</p>
+<hr class="docutils" />
+<dl class="docutils">
+<dt>Requires Python packages/modules:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a></li>
+</ul>
+</dd>
+</dl>
+<p>Imports symbols from <a class="reference internal" href="symbols.html#module-wme.symbols" title="wme.symbols"><code class="xref py py-mod docutils literal notranslate"><span class="pre">symbols</span></code></a> module</p>
+<hr class="docutils" />
+<dl class="class">
+<dt id="wme.solve1d.ErosionWeathering">
+<em class="property">class </em><code class="descclassname">wme.solve1d.</code><code class="descname">ErosionWeathering</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numerical solution of eta(chi,tau)  and phi(tau) evolution</p>
+<p>Class that provides a finite-difference method for solving the (chi,tau) evolution
+of a weakness profile eta(chi,tau) and its eroding surface position phi(t)
+as 2d array eta_i^j and 1d vector phi^j respectively.
+and that provides dictionaries for the model and its numerical solution
+parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pdict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – model parameters dictionary</li>
+<li><strong>ndict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – numerical method parameters dictionary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.pdict">
+<code class="descname">pdict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.pdict" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – model parameters dictionary, extended during &amp; after instantiation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.ndict">
+<code class="descname">ndict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.ndict" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – numerical method parameters dictionary</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.chi_domain_size">
+<code class="descname">chi_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_domain_size" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – length of chi solution domain
+(extracted from ndict)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.Delta_chi">
+<code class="descname">Delta_chi</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_chi" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – spacing between discrete chi solution points
+(extracted from ndict)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.n_chi_domain">
+<code class="descname">n_chi_domain</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.n_chi_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – number of solution points in distance chi
+(extracted from ndict)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.tau_domain_size">
+<code class="descname">tau_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_domain_size" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – maximum duration of solution (truncated if/when front
+exits chi domain) (extracted from ndict)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.tau_n_steps">
+<code class="descname">tau_n_steps</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_n_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – number of solution points in time tau</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.Delta_tau">
+<code class="descname">Delta_tau</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_tau" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – spacing between discrete tau solution points</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.chi_array">
+<code class="descname">chi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> – chi_i discrete distances</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.tau_array">
+<code class="descname">tau_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> – tau^j discrete times</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.eta_array">
+<code class="descname">eta_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.eta_array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> – eta_i^j discretized weakness profile</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.phi_array">
+<code class="descname">phi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.phi_array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> – phi^j discrete (in time) series of erosion front
+positions (smoothly resolved as floats)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.nu_array">
+<code class="descname">nu_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> – nu^j  discrete (in time) series of
+dimensionless erosion rates</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.j">
+<code class="descname">j</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.j" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – final time step index</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.W">
+<code class="descname">W</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.W" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – weathering number</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.nu_s">
+<code class="descname">nu_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – predicted (by analytical solution) dimensionless
+steady-state erosion rate</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.v_s">
+<code class="descname">v_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.v_s" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – predicted (by analytical solution)  steady-state erosion rate</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.nu_s_bar">
+<code class="descname">nu_s_bar</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – post-hoc estimate (from averaging portion of solutions) of
+dimensionless steady-state erosion rate</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wme.solve1d.ErosionWeathering.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize class instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wme.solve1d.ErosionWeathering.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use an explicit finite-difference scheme to solve for evolution of
+a weakness profile eta_i^j and its eroding surface position phi^j.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="wme.solve1d.eta_chi_tau">
+<code class="descclassname">wme.solve1d.</code><code class="descname">eta_chi_tau</code><span class="sig-paren">(</span><em>chi</em>, <em>tau</em>, <em>W</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.eta_chi_tau" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weathering-driven weakness function.</p>
+<p>Analytic solution for eta(chi,tau) as a function of dimensionless distance
+(depth into the rock) chi and time tau, and parameterized
+by weathering number W, assuming an exponential-decay model for weathering.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless time</li>
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless distance</li>
+<li><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">eta(chi,tau;W)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="wme.solve1d.negExpH">
+<code class="descclassname">wme.solve1d.</code><code class="descname">negExpH</code><span class="sig-paren">(</span><em>chi</em>, <em>dchi</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.negExpH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negate, exponentiate and Heaviside clip.</p>
+<p>Assumes the argument chi= <span class="math notranslate">\(\chi\)</span>
+is the dimensionless distance from the erosion front,
+and dchi= <span class="math notranslate">\(\Delta\chi\)</span>  is the discrete spatial step size.
+Exponentiates -chi*H(chi+dchi) where H=Heaviside function.
+When invoked in computing d{eta}/d{chi}, adding dchi means a non-clipped
+value is returned for the sample point just to the left (-ve chi).
+Thus the eta gradient is estimated across the erosion front, where sample points
+span the moving origin, as well as for all points chi&gt;=0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – distance from the erosion front</li>
+<li><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – discrete spacing between sample points along x</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">exp(-chi) if chi+dchi&gt;=0, 1 otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="wme.solve1d.nu_s_W">
+<code class="descclassname">wme.solve1d.</code><code class="descname">nu_s_W</code><span class="sig-paren">(</span><em>W</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.nu_s_W" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimensionless steady-state speed of the erosion front <span class="math notranslate">\(\nu_s(W)\)</span>.</p>
+<p>Assumes: <span class="math notranslate">\(\nu_s = \tfrac{1}{2}\left(1+\sqrt{1+4W}\right)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate">\(W\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dimensionless erosion rate <span class="math notranslate">\(\nu_s\)</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">---------------------------------------------------------------------</span>
+
+<span class="sd">Module for performing finite-difference solution of weathering-driven</span>
+<span class="sd">weakening of a 1d bedrock surface half-space and its concomitant erosion.</span>
+
+<span class="sd">The moving-boundary problem is solved using a continuous-valued </span>
+<span class="sd">distance (from the erosion front) function that tracks motion with sub-grid</span>
+<span class="sd">resolution. Upwind differencing and explicit Euler methods are employed. </span>
+
+<span class="sd">---------------------------------------------------------------------</span>
+
+<span class="sd">Requires Python packages/modules:</span>
+<span class="sd">  -  :mod:`numpy`</span>
+
+<span class="sd">Imports symbols from :mod:`.symbols` module</span>
+
+<span class="sd">---------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.symbols</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">negExpH</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span><span class="n">dchi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Negate, exponentiate and Heaviside clip.</span>
+<span class="sd">    </span>
+<span class="sd">    Assumes the argument chi= :math:`\\chi`</span>
+<span class="sd">    is the dimensionless distance from the erosion front, </span>
+<span class="sd">    and dchi= :math:`\\Delta\\chi`  is the discrete spatial step size.</span>
+<span class="sd">    Exponentiates -chi*H(chi+dchi) where H=Heaviside function.</span>
+<span class="sd">    When invoked in computing d{eta}/d{chi}, adding dchi means a non-clipped</span>
+<span class="sd">    value is returned for the sample point just to the left (-ve chi).</span>
+<span class="sd">    Thus the eta gradient is estimated across the erosion front, where sample points</span>
+<span class="sd">    span the moving origin, as well as for all points chi&gt;=0.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        chi (float): distance from the erosion front</span>
+<span class="sd">        dchi (float): discrete spacing between sample points along x</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float:</span>
+<span class="sd">            exp(-chi) if chi+dchi&gt;=0, 1 otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">chi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">chi</span><span class="o">+</span><span class="n">dchi</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">nu_s_W</span><span class="p">(</span><span class="n">W</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dimensionless steady-state speed of the erosion front :math:`\\nu_s(W)`.</span>
+<span class="sd">    </span>
+<span class="sd">    Assumes: :math:`\\nu_s = \\tfrac{1}{2}\\left(1+\sqrt{1+4W}\\right)`</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        W (float): weathering number :math:`W`</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: dimensionless erosion rate :math:`\\nu_s`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">W</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">eta_chi_tau</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span><span class="n">tau</span><span class="p">,</span><span class="n">W</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Weathering-driven weakness function.</span>
+<span class="sd">    </span>
+<span class="sd">    Analytic solution for eta(chi,tau) as a function of dimensionless distance</span>
+<span class="sd">    (depth into the rock) chi and time tau, and parameterized</span>
+<span class="sd">    by weathering number W, assuming an exponential-decay model for weathering.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        tau (float): dimensionless time</span>
+<span class="sd">        chi (float): dimensionless distance</span>
+<span class="sd">        W (float): weathering number</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float:</span>
+<span class="sd">            eta(chi,tau;W)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">W</span><span class="o">/</span><span class="n">nu_s_W</span><span class="p">(</span><span class="n">W</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">chi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ErosionWeathering</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Numerical solution of eta(chi,tau)  and phi(tau) evolution </span>
+<span class="sd">    </span>
+<span class="sd">    Class that provides a finite-difference method for solving the (chi,tau) evolution</span>
+<span class="sd">    of a weakness profile eta(chi,tau) and its eroding surface position phi(t)</span>
+<span class="sd">    as 2d array eta_i^j and 1d vector phi^j respectively.</span>
+<span class="sd">    and that provides dictionaries for the model and its numerical solution</span>
+<span class="sd">    parameters.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        pdict (dict): model parameters dictionary</span>
+<span class="sd">        ndict (dict): numerical method parameters dictionary</span>
+<span class="sd">        </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        pdict (dict) : model parameters dictionary, extended during &amp; after instantiation</span>
+<span class="sd">        ndict (dict) : numerical method parameters dictionary</span>
+<span class="sd">        </span>
+<span class="sd">        chi_domain_size (float):  length of chi solution domain </span>
+<span class="sd">                                    (extracted from ndict)</span>
+<span class="sd">        Delta_chi (float):        spacing between discrete chi solution points </span>
+<span class="sd">                                    (extracted from ndict)</span>
+<span class="sd">        n_chi_domain (int):       number of solution points in distance chi </span>
+<span class="sd">                                    (extracted from ndict)</span>
+<span class="sd">        tau_domain_size (float):  maximum duration of solution (truncated if/when front </span>
+<span class="sd">                                  exits chi domain) (extracted from ndict)</span>
+<span class="sd">        tau_n_steps (int):        number of solution points in time tau</span>
+<span class="sd">        Delta_tau (float):        spacing between discrete tau solution points</span>
+
+<span class="sd">        chi_array (numpy.ndarray) : chi_i discrete distances</span>
+<span class="sd">        tau_array (numpy.ndarray) : tau^j discrete times</span>
+<span class="sd">        eta_array (numpy.ndarray) : eta_i^j discretized weakness profile</span>
+<span class="sd">        phi_array (numpy.ndarray) : phi^j discrete (in time) series of erosion front </span>
+<span class="sd">                                    positions (smoothly resolved as floats)</span>
+<span class="sd">        nu_array  (numpy.ndarray) : nu^j  discrete (in time) series of </span>
+<span class="sd">                                    dimensionless erosion rates</span>
+<span class="sd">        </span>
+<span class="sd">        j (int)        :  final time step index</span>
+
+<span class="sd">        W (float)    : weathering number</span>
+<span class="sd">        nu_s (float) : predicted (by analytical solution) dimensionless </span>
+<span class="sd">                            steady-state erosion rate</span>
+<span class="sd">        v_s (float)  : predicted (by analytical solution)  steady-state erosion rate</span>
+<span class="sd">        nu_s_bar (float) : post-hoc estimate (from averaging portion of solutions) of</span>
+<span class="sd">                           dimensionless steady-state erosion rate</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdict</span><span class="p">,</span> <span class="n">ndict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pdict</span> <span class="o">=</span> <span class="n">pdict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W</span>     <span class="o">=</span> <span class="n">pdict</span><span class="p">[</span><span class="n">w_0</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">pdict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">pdict</span><span class="p">[</span><span class="n">v_0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nu_s</span>  <span class="o">=</span> <span class="n">nu_s_W</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_s</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nu_s</span><span class="o">*</span><span class="n">pdict</span><span class="p">[</span><span class="n">v_0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">W</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">,</span> <span class="n">nu_s</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">nu_s</span><span class="p">,</span> <span class="n">v_s</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">v_s</span><span class="p">})</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">ndict</span> <span class="o">=</span> <span class="n">ndict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chi_domain_size</span> <span class="o">=</span> <span class="n">ndict</span><span class="p">[</span><span class="n">chi_domain_size</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_domain_size</span> <span class="o">=</span> <span class="n">ndict</span><span class="p">[</span><span class="n">tau_domain_size</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Delta_chi</span> <span class="o">=</span> <span class="n">ndict</span><span class="p">[</span><span class="n">Delta_chi</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Delta_tau</span> <span class="o">=</span> <span class="n">ndict</span><span class="p">[</span><span class="n">Delta_tau</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_chi_domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chi_domain_size</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">Delta_chi</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_n_steps</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_domain_size</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">Delta_tau</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_n_steps</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_chi_domain</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_chi_domain</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_n_steps</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chi_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">chi_domain_size</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_chi_domain</span><span class="p">,</span>
+                                     <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_domain_size</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_n_steps</span><span class="p">,</span>
+                                     <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_n_steps</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">j</span>         <span class="o">=</span> <span class="mi">0</span>
+        
+
+    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use an explicit finite-difference scheme to solve for evolution of</span>
+<span class="sd">        a weakness profile eta_i^j and its eroding surface position phi^j.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">W</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta_array</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_array</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_array</span>
+        <span class="n">tau</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tau_array</span>
+        <span class="n">Delta_chi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Delta_chi</span>
+        <span class="n">Delta_tau</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Delta_tau</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">tau_step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tau</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">j</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">Delta_chi</span><span class="p">)</span>
+            <span class="n">f_right</span> <span class="o">=</span> <span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">Delta_chi</span><span class="o">-</span><span class="n">f</span>
+            <span class="n">f_left</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">-</span><span class="n">f_right</span>
+            <span class="n">fp1</span> <span class="o">=</span> <span class="n">f</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">fp2</span> <span class="o">=</span> <span class="n">f</span><span class="o">+</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="n">fp2</span><span class="o">&gt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_chi_domain</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_left</span><span class="o">*</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">f_right</span><span class="o">*</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">fp1</span><span class="p">])</span>
+            <span class="n">Delta_phi_j</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">Delta_tau</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">W</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">Delta_phi_j</span>
+            <span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">f</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                  <span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">f</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+                <span class="o">+</span> <span class="p">(</span><span class="n">Delta_phi_j</span><span class="o">*</span><span class="p">(</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">fp1</span><span class="p">:]</span><span class="o">-</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">f</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">Delta_chi</span><span class="p">)</span>
+                <span class="o">+</span>  <span class="n">Delta_tau</span><span class="o">*</span><span class="n">negExpH</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">f</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">Delta_chi</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                  <span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+                <span class="o">+</span> <span class="p">(</span><span class="n">Delta_phi_j</span><span class="o">*</span><span class="p">(</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">Delta_chi</span><span class="p">)</span>
+                <span class="o">+</span>  <span class="n">Delta_tau</span><span class="o">*</span><span class="n">negExpH</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">Delta_chi</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_left</span><span class="o">*</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">f_right</span><span class="o">*</span><span class="n">eta</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">fp1</span><span class="p">])</span>
+        <span class="n">di</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nu_s_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nu_array</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="n">di</span><span class="p">:</span><span class="mi">6</span><span class="o">*</span><span class="n">di</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">nu_s_bar</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">nu_s_bar</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/../_images/wme_icon.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">Weathering Mediated Erosion</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Weathering-driven weakening and coeval erosion of rock</p>
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <br>
+  <p class="biglink"><a class="biglink" href="../py-modindex.html">
+         Module Index</a>
+  <br><br>
+  <h3><a href="../index.html">Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a><ul>
+<li><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related</h3>
+<ul>
+  <li><a href="../index.html"></a><ul>
+      <li><a href="theory.html" title="previous chapter"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
+      <li><a href="solve1p1d.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, CPS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/modules/solve1d.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
