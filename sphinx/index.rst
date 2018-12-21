@@ -6,7 +6,7 @@ Weathering-mediated erosion
 Exploration of weathering-driven weakening on rock erosion.
 
 
-.. image:: images/highW_evolution.png 
+.. image:: images/nu_s.png 
    :target: https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
 
 The focus is on environments with no soil accumulation such as on 
