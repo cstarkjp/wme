@@ -29,7 +29,7 @@ Installation
    :maxdepth: 1
    
    Prerequisites <documentation/prerequisites>
-   Git cloning and setting the PYTHONPATH <documentation/install>
+   Installation <documentation/install>
 
 -----------------------------------------------------------
 Execution
@@ -40,7 +40,7 @@ Execution
    :glob:
    :maxdepth: 1
    
-   How to compute 1d solutions <documentation/howtorun> 
+   How to run <documentation/howtorun> 
 
 
 
