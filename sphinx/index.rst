@@ -7,7 +7,7 @@ Exploration of weathering-driven weakening on rock erosion.
 
 
 .. image:: images/highW_evolution.png 
-   :target: https://github.com/cstarknyc/WeatheringMediatedErosion/blob/master/experiments1d/Results1d
+   :target: https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
 
 The focus is on environments with no soil accumulation: for example, on 
 steep bedrock channel walls.
@@ -17,36 +17,22 @@ an exponentially decaying weakening profile with depth into the rock.
 
 The `code`_ is provided as a `Python3 package`_ and an `IPython Jupyter notebook`_.
 
-
-
 -----------------------------------------------------------
-Set up
+Set up & execution
 -----------------------------------------------------------
 
  
 .. toctree::
-   :caption: 
-   :glob:
    :maxdepth: 1
    
    Prerequisites <documentation/prerequisites>
    Installation <documentation/install>
-
------------------------------------------------------------
-Running
------------------------------------------------------------
-
- 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   
    How to run <documentation/howtorun> 
 
 
 
 -----------------------------------------------------------
-Python package
+Code
 -----------------------------------------------------------
 
 The :mod:`wme` Python package consists of the following modules:
@@ -69,11 +55,11 @@ The :mod:`wme` Python package consists of the following modules:
 * :ref:`genindex` of modules, methods and variables
 
 ..  _Python3 package: 
-      https://github.com/cstarknyc/WeatheringMediatedErosion/tree/master/python
+      https://github.com/cstarknyc/wme/tree/master/python
 .. _IPython Jupyter notebook: 
-      https://github.com/cstarknyc/WeatheringMediatedErosion/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb
-.. _code: https://github.com/cstarknyc/WeatheringMediatedErosion
+      https://github.com/cstarknyc/wme/blob/master/experiments1d/wme1d.ipynb
+.. _code: https://github.com/cstarknyc/wme
 .. _example results: 
-      https://github.com/cstarknyc/WeatheringMediatedErosion/blob/master/experiments1d/Results1d
+      https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
 
 
