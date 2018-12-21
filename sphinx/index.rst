@@ -25,6 +25,7 @@ Set up
 
  
 .. toctree::
+   :caption: 
    :glob:
    :maxdepth: 1
    
