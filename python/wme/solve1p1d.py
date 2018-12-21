@@ -44,19 +44,19 @@ class ChannelWall:
             pdict (:obj:`dict`) : 
                 model parameters dictionary, extended during & after instantiation
 
-            v0_eqn_vr_h_z (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            v0_eqn_vr_h_z (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            w0_eqn_wr_z (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            w0_eqn_wr_z (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            vs_eqn_vr (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            vs_eqn_vr (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            w0_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            w0_calibrated (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            v0_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            v0_calibrated (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            W_calibrated  (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            W_calibrated  (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
-            vs_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            vs_calibrated (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 
 
             
@@ -85,7 +85,7 @@ class ChannelWall:
                 record of number of sampling points
             z_array  (:class:`numpy.ndarray`) :
                 sample points along vertical profile 
-            vs_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+            vs_calibrated (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
                 weathering-mediated surface-normal erosion rate at steady state
                 calibrated by model parameters supplied in :attr:`wme.pdict`
             w0_array (:class:`numpy.ndarray`) :
