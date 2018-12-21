@@ -25,7 +25,7 @@ from .symbols import *
 
 class WeatheringMediatedErosion:
     """
-    Define & solve equations that frame weathering-mediated erosion theory
+    Weathering-mediated erosion theory in various forms
     
     """
     def __init__(self):
