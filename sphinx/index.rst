@@ -34,24 +34,8 @@ Set up & execution
 Code
 -----------------------------------------------------------
 
-The :mod:`wme` Python package consists of the following modules:
+The :mod:`wme` package consists of a set of Python modules:ref:`genindex`.
 
-
-.. toctree::
-   :maxdepth: 1
-
-   modules/initialize   
-   modules/symbols
-   modules/data
-   modules/theory
-   modules/solve1d
-   modules/solve1p1d
-   modules/plot
-   modules/save
-  
-.. only:: html 
-
-* :ref:`genindex` of modules, methods and variables
 
 ..  _Python3 package: 
       https://github.com/cstarknyc/wme/tree/master/python
