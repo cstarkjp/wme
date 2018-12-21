@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>solve1d.py &#8212; Weathering Mediated Erosion  documentation</title>
+    <title>solve1d.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -53,10 +53,13 @@ resolution. Upwind differencing and explicit Euler methods are employed.</p>
 <dl class="class">
 <dt id="wme.solve1d.ErosionWeathering">
 <em class="property">class </em><code class="descclassname">wme.solve1d.</code><code class="descname">ErosionWeathering</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerical solution of eta(chi,tau)  and phi(tau) evolution</p>
-<p>Class that provides a finite-difference method for solving the (chi,tau) evolution
-of a weakness profile eta(chi,tau) and its eroding surface position phi(t)
-as 2d array eta_i^j and 1d vector phi^j respectively.
+<dd><p>Numerical solution of <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
+and <span class="math notranslate">\(\varphi(\tau)\)</span> evolution</p>
+<p>Class that provides a finite-difference method for solving the
+<span class="math notranslate">\((chi,tau)\)</span> evolution
+of a weakness profile <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
+and its eroding surface position <span class="math notranslate">\(\varphi(\tau)\)</span>
+as 2d array <span class="math notranslate">\(\eta_i^j\)</span> and 1d vector <span class="math notranslate">\(\varphi^j\)</span> respectively.
 and that provides dictionaries for the model and its numerical solution
 parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -71,133 +74,154 @@ parameters.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="wme.solve1d.ErosionWeathering.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize class instance.</p>
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.pdict">
 <code class="descname">pdict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.pdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>dict</em> – model parameters dictionary, extended during &amp; after instantiation</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary, extended during &amp; after instantiation</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.ndict">
 <code class="descname">ndict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.ndict" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>dict</em> – numerical method parameters dictionary</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – numerical method parameters dictionary</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.chi_domain_size">
 <code class="descname">chi_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_domain_size" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – length of chi solution domain
-(extracted from ndict)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – length of chi solution domain (extracted from ndict)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.Delta_chi">
 <code class="descname">Delta_chi</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_chi" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – spacing between discrete chi solution points
-(extracted from ndict)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – spacing between discrete chi solution points (extracted from ndict)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.n_chi_domain">
 <code class="descname">n_chi_domain</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.n_chi_domain" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> – number of solution points in distance chi
-(extracted from ndict)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of solution points in distance chi (extracted from ndict)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_domain_size">
 <code class="descname">tau_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_domain_size" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – maximum duration of solution (truncated if/when front
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – maximum duration of solution (truncated if/when front
 exits chi domain) (extracted from ndict)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_n_steps">
 <code class="descname">tau_n_steps</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_n_steps" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> – number of solution points in time tau</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of solution points in time tau</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.Delta_tau">
 <code class="descname">Delta_tau</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_tau" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – spacing between discrete tau solution points</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – spacing between discrete tau solution points</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.chi_array">
 <code class="descname">chi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> – chi_i discrete distances</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete distances <span class="math notranslate">\(\chi_i\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_array">
 <code class="descname">tau_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> – tau^j discrete times</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete times <span class="math notranslate">\(\tau^j\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.eta_array">
 <code class="descname">eta_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.eta_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> – eta_i^j discretized weakness profile</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discretized weakness profile <span class="math notranslate">\(\eta_i^j\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.phi_array">
 <code class="descname">phi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.phi_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> – phi^j discrete (in time) series of erosion front
-positions (smoothly resolved as floats)</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of erosion front
+positions <span class="math notranslate">\(\phi^j\)</span> (smoothly resolved as floats)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.nu_array">
 <code class="descname">nu_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> – nu^j  discrete (in time) series of
-dimensionless erosion rates</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of
+dimensionless erosion rates <span class="math notranslate">\(\nu^j\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.j">
 <code class="descname">j</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.j" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> – final time step index</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – final time step index <span class="math notranslate">\(j\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.W">
 <code class="descname">W</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.W" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – weathering number</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – weathering number <span class="math notranslate">\(W\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.nu_s">
 <code class="descname">nu_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – predicted (by analytical solution) dimensionless
-steady-state erosion rate</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – predicted (by analytical solution) dimensionless
+steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.v_s">
 <code class="descname">v_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.v_s" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – predicted (by analytical solution)  steady-state erosion rate</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – predicted (by analytical solution) steady-state erosion rate <span class="math notranslate">\(v_s\)</span></p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="wme.solve1d.ErosionWeathering.nu_s_bar">
-<code class="descname">nu_s_bar</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s_bar" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – post-hoc estimate (from averaging portion of solutions) of
-dimensionless steady-state erosion rate</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="wme.solve1d.ErosionWeathering.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize class instance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="wme.solve1d.ErosionWeathering.solve">
 <code class="descname">solve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.solve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use an explicit finite-difference scheme to solve for evolution of
-a weakness profile eta_i^j and its eroding surface position phi^j.</p>
+a weakness profile <span class="math notranslate">\(\eta_i^j\)</span>
+and its eroding surface position <span class="math notranslate">\(\phi^j\)</span>.</p>
+<dl class="attribute">
+<dt>
+<code class="descname">pdict</code></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary, extended during &amp; after instantiation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">nu_array</code></dt>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of
+dimensionless erosion rates <span class="math notranslate">\(\nu^j\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">j</code></dt>
+<dd><p><em>int</em> – final time step index <span class="math notranslate">\(j\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.solve1d.ErosionWeathering.nu_s_bar">
+<code class="descname">nu_s_bar</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> –</p>
+<dl class="docutils">
+<dt>post-hoc estimate (from averaging portion of solutions) of</dt>
+<dd>dimensionless steady-state erosion rate
+<span class="math notranslate">\(\overline{\nu}_s\)</span></dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>
@@ -206,21 +230,22 @@ a weakness profile eta_i^j and its eroding surface position phi^j.</p>
 <dt id="wme.solve1d.eta_chi_tau">
 <code class="descclassname">wme.solve1d.</code><code class="descname">eta_chi_tau</code><span class="sig-paren">(</span><em>chi</em>, <em>tau</em>, <em>W</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.eta_chi_tau" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weathering-driven weakness function.</p>
-<p>Analytic solution for eta(chi,tau) as a function of dimensionless distance
-(depth into the rock) chi and time tau, and parameterized
-by weathering number W, assuming an exponential-decay model for weathering.</p>
+<p>Analytic solution for <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
+as a function of dimensionless distance
+(depth into the rock) <span class="math notranslate">\(\chi\)</span> and time <span class="math notranslate">\(\tau\)</span>, and parameterized
+by weathering number <span class="math notranslate">\(W\)</span>, assuming an exponential-decay model for weathering.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless time</li>
-<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless distance</li>
-<li><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number</li>
+<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless time <span class="math notranslate">\(\tau\)</span></li>
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless distance <span class="math notranslate">\(\chi\)</span></li>
+<li><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate">\(W\)</span></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">eta(chi,tau;W)</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">weakness <span class="math notranslate">\(\eta(\chi,\tau;W)\)</span></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
@@ -237,22 +262,25 @@ by weathering number W, assuming an exponential-decay model for weathering.</p>
 <p>Assumes the argument chi= <span class="math notranslate">\(\chi\)</span>
 is the dimensionless distance from the erosion front,
 and dchi= <span class="math notranslate">\(\Delta\chi\)</span>  is the discrete spatial step size.
-Exponentiates -chi*H(chi+dchi) where H=Heaviside function.
-When invoked in computing d{eta}/d{chi}, adding dchi means a non-clipped
-value is returned for the sample point just to the left (-ve chi).
-Thus the eta gradient is estimated across the erosion front, where sample points
-span the moving origin, as well as for all points chi&gt;=0.</p>
+Exponentiates <span class="math notranslate">\(-\chi H(\chi+\Delta\chi)\)</span> where H=Heaviside function.
+When invoked in computing <span class="math notranslate">\(d{\eta}/d{\chi}\)</span>,
+adding <span class="math notranslate">\(\Delta\chi\)</span> means a non-clipped
+value is returned for the sample point just to the left (-ve <span class="math notranslate">\(\chi\)</span>).
+Thus the <span class="math notranslate">\(\eta\)</span> gradient is estimated across the erosion front,
+where sample points
+span the moving origin, as well as for all points <span class="math notranslate">\(\chi\geq 0\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – distance from the erosion front</li>
-<li><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – discrete spacing between sample points along x</li>
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – distance <span class="math notranslate">\(\chi\)</span> from the erosion front</li>
+<li><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – discrete spacing <span class="math notranslate">\(\Delta\chi\)</span>
+between sample points along <span class="math notranslate">\(\chi\)</span></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">exp(-chi) if chi+dchi&gt;=0, 1 otherwise</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><span class="math notranslate">\(\exp(-\chi)\)</span> if <span class="math notranslate">\(\chi+\Delta\chi \geq 0\)</span>, 1 otherwise</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
@@ -316,19 +344,22 @@ span the moving origin, as well as for all points chi&gt;=0.</p>
 <span class="sd">    Assumes the argument chi= :math:`\\chi`</span>
 <span class="sd">    is the dimensionless distance from the erosion front, </span>
 <span class="sd">    and dchi= :math:`\\Delta\\chi`  is the discrete spatial step size.</span>
-<span class="sd">    Exponentiates -chi*H(chi+dchi) where H=Heaviside function.</span>
-<span class="sd">    When invoked in computing d{eta}/d{chi}, adding dchi means a non-clipped</span>
-<span class="sd">    value is returned for the sample point just to the left (-ve chi).</span>
-<span class="sd">    Thus the eta gradient is estimated across the erosion front, where sample points</span>
-<span class="sd">    span the moving origin, as well as for all points chi&gt;=0.</span>
+<span class="sd">    Exponentiates :math:`-\\chi H(\\chi+\\Delta\\chi)` where H=Heaviside function.</span>
+<span class="sd">    When invoked in computing :math:`d{\\eta}/d{\\chi}`, </span>
+<span class="sd">    adding :math:`\\Delta\\chi` means a non-clipped</span>
+<span class="sd">    value is returned for the sample point just to the left (-ve :math:`\\chi`).</span>
+<span class="sd">    Thus the :math:`\\eta` gradient is estimated across the erosion front, </span>
+<span class="sd">    where sample points</span>
+<span class="sd">    span the moving origin, as well as for all points :math:`\\chi\\geq 0`.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        chi (float): distance from the erosion front</span>
-<span class="sd">        dchi (float): discrete spacing between sample points along x</span>
+<span class="sd">        chi (float): distance :math:`\\chi` from the erosion front</span>
+<span class="sd">        dchi (float): discrete spacing :math:`\\Delta\\chi` </span>
+<span class="sd">            between sample points along :math:`\\chi`</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
 <span class="sd">        float:</span>
-<span class="sd">            exp(-chi) if chi+dchi&gt;=0, 1 otherwise</span>
+<span class="sd">            :math:`\\exp(-\\chi)` if :math:`\\chi+\\Delta\\chi \\geq 0`, 1 otherwise</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">chi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">chi</span><span class="o">+</span><span class="n">dchi</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 
@@ -350,29 +381,33 @@ span the moving origin, as well as for all points chi&gt;=0.</p>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Weathering-driven weakness function.</span>
 <span class="sd">    </span>
-<span class="sd">    Analytic solution for eta(chi,tau) as a function of dimensionless distance</span>
-<span class="sd">    (depth into the rock) chi and time tau, and parameterized</span>
-<span class="sd">    by weathering number W, assuming an exponential-decay model for weathering.</span>
+<span class="sd">    Analytic solution for :math:`\\eta(\\chi,\\tau)` </span>
+<span class="sd">    as a function of dimensionless distance</span>
+<span class="sd">    (depth into the rock) :math:`\\chi` and time :math:`\\tau`, and parameterized</span>
+<span class="sd">    by weathering number :math:`W`, assuming an exponential-decay model for weathering.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        tau (float): dimensionless time</span>
-<span class="sd">        chi (float): dimensionless distance</span>
-<span class="sd">        W (float): weathering number</span>
+<span class="sd">        tau (float): dimensionless time :math:`\\tau`</span>
+<span class="sd">        chi (float): dimensionless distance :math:`\\chi`</span>
+<span class="sd">        W (float):   weathering number :math:`W`</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        float:</span>
-<span class="sd">            eta(chi,tau;W)</span>
+<span class="sd">        float: </span>
+<span class="sd">            weakness :math:`\\eta(\\chi,\\tau;W)`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">W</span><span class="o">/</span><span class="n">nu_s_W</span><span class="p">(</span><span class="n">W</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">chi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">ErosionWeathering</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Numerical solution of eta(chi,tau)  and phi(tau) evolution </span>
+<span class="sd">    Numerical solution of :math:`\\eta(\\chi,\\tau)` </span>
+<span class="sd">    and :math:`\\varphi(\\tau)` evolution </span>
 <span class="sd">    </span>
-<span class="sd">    Class that provides a finite-difference method for solving the (chi,tau) evolution</span>
-<span class="sd">    of a weakness profile eta(chi,tau) and its eroding surface position phi(t)</span>
-<span class="sd">    as 2d array eta_i^j and 1d vector phi^j respectively.</span>
+<span class="sd">    Class that provides a finite-difference method for solving the </span>
+<span class="sd">    :math:`(chi,tau)` evolution</span>
+<span class="sd">    of a weakness profile :math:`\\eta(\\chi,\\tau)`</span>
+<span class="sd">    and its eroding surface position :math:`\\varphi(\\tau)`</span>
+<span class="sd">    as 2d array :math:`\\eta_i^j` and 1d vector :math:`\\varphi^j` respectively.</span>
 <span class="sd">    and that provides dictionaries for the model and its numerical solution</span>
 <span class="sd">    parameters.</span>
 <span class="sd">    </span>
@@ -381,41 +416,56 @@ span the moving origin, as well as for all points chi&gt;=0.</p>
 <span class="sd">        pdict (dict): model parameters dictionary</span>
 <span class="sd">        ndict (dict): numerical method parameters dictionary</span>
 <span class="sd">        </span>
-<span class="sd">    Attributes:</span>
-<span class="sd">        pdict (dict) : model parameters dictionary, extended during &amp; after instantiation</span>
-<span class="sd">        ndict (dict) : numerical method parameters dictionary</span>
-<span class="sd">        </span>
-<span class="sd">        chi_domain_size (float):  length of chi solution domain </span>
-<span class="sd">                                    (extracted from ndict)</span>
-<span class="sd">        Delta_chi (float):        spacing between discrete chi solution points </span>
-<span class="sd">                                    (extracted from ndict)</span>
-<span class="sd">        n_chi_domain (int):       number of solution points in distance chi </span>
-<span class="sd">                                    (extracted from ndict)</span>
-<span class="sd">        tau_domain_size (float):  maximum duration of solution (truncated if/when front </span>
-<span class="sd">                                  exits chi domain) (extracted from ndict)</span>
-<span class="sd">        tau_n_steps (int):        number of solution points in time tau</span>
-<span class="sd">        Delta_tau (float):        spacing between discrete tau solution points</span>
 
-<span class="sd">        chi_array (numpy.ndarray) : chi_i discrete distances</span>
-<span class="sd">        tau_array (numpy.ndarray) : tau^j discrete times</span>
-<span class="sd">        eta_array (numpy.ndarray) : eta_i^j discretized weakness profile</span>
-<span class="sd">        phi_array (numpy.ndarray) : phi^j discrete (in time) series of erosion front </span>
-<span class="sd">                                    positions (smoothly resolved as floats)</span>
-<span class="sd">        nu_array  (numpy.ndarray) : nu^j  discrete (in time) series of </span>
-<span class="sd">                                    dimensionless erosion rates</span>
-<span class="sd">        </span>
-<span class="sd">        j (int)        :  final time step index</span>
-
-<span class="sd">        W (float)    : weathering number</span>
-<span class="sd">        nu_s (float) : predicted (by analytical solution) dimensionless </span>
-<span class="sd">                            steady-state erosion rate</span>
-<span class="sd">        v_s (float)  : predicted (by analytical solution)  steady-state erosion rate</span>
-<span class="sd">        nu_s_bar (float) : post-hoc estimate (from averaging portion of solutions) of</span>
-<span class="sd">                           dimensionless steady-state erosion rate</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdict</span><span class="p">,</span> <span class="n">ndict</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize class instance.</span>
+<span class="sd">        </span>
+<span class="sd">        </span>
+<span class="sd">        Attributes:</span>
+<span class="sd">            pdict (:obj:`dict`) : </span>
+<span class="sd">                model parameters dictionary, extended during &amp; after instantiation</span>
+<span class="sd">            ndict (:obj:`dict`) : </span>
+<span class="sd">                numerical method parameters dictionary</span>
+<span class="sd">            </span>
+<span class="sd">            chi_domain_size (:obj:`float`):  </span>
+<span class="sd">                length of chi solution domain (extracted from ndict)</span>
+<span class="sd">            Delta_chi (:obj:`float`):        </span>
+<span class="sd">                spacing between discrete chi solution points (extracted from ndict)</span>
+<span class="sd">            n_chi_domain (:obj:`int`):       </span>
+<span class="sd">                number of solution points in distance chi (extracted from ndict)</span>
+<span class="sd">            tau_domain_size (:obj:`float`):  </span>
+<span class="sd">                maximum duration of solution (truncated if/when front </span>
+<span class="sd">                exits chi domain) (extracted from ndict)</span>
+<span class="sd">            tau_n_steps (:obj:`int`):        </span>
+<span class="sd">                number of solution points in time tau</span>
+<span class="sd">            Delta_tau (:obj:`float`):        </span>
+<span class="sd">                spacing between discrete tau solution points</span>
+<span class="sd">    </span>
+<span class="sd">            chi_array (:class:`numpy.ndarray`) : </span>
+<span class="sd">                discrete distances :math:`\\chi_i` </span>
+<span class="sd">            tau_array (:class:`numpy.ndarray`) : </span>
+<span class="sd">                discrete times :math:`\\tau^j`</span>
+<span class="sd">            eta_array (:class:`numpy.ndarray`) : </span>
+<span class="sd">                discretized weakness profile :math:`\\eta_i^j`</span>
+<span class="sd">            phi_array (:class:`numpy.ndarray`) : </span>
+<span class="sd">                discrete (in time) series of erosion front </span>
+<span class="sd">                positions :math:`\\phi^j` (smoothly resolved as floats)</span>
+<span class="sd">            nu_array  (:class:`numpy.ndarray`) :  </span>
+<span class="sd">                discrete (in time) series of </span>
+<span class="sd">                dimensionless erosion rates :math:`\\nu^j` </span>
+<span class="sd">            </span>
+<span class="sd">            j (:obj:`int`) :  </span>
+<span class="sd">                final time step index :math:`j`</span>
+<span class="sd">    </span>
+<span class="sd">            W (:obj:`float`)    : </span>
+<span class="sd">                weathering number :math:`W`</span>
+<span class="sd">            nu_s (:obj:`float`) : </span>
+<span class="sd">                predicted (by analytical solution) dimensionless </span>
+<span class="sd">                steady-state erosion rate :math:`\\nu_s`</span>
+<span class="sd">            v_s (:obj:`float`)  : </span>
+<span class="sd">                predicted (by analytical solution) steady-state erosion rate :math:`v_s`     </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pdict</span> <span class="o">=</span> <span class="n">pdict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W</span>     <span class="o">=</span> <span class="n">pdict</span><span class="p">[</span><span class="n">w_0</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">pdict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">pdict</span><span class="p">[</span><span class="n">v_0</span><span class="p">])</span>
@@ -445,7 +495,20 @@ span the moving origin, as well as for all points chi&gt;=0.</p>
     <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Use an explicit finite-difference scheme to solve for evolution of</span>
-<span class="sd">        a weakness profile eta_i^j and its eroding surface position phi^j.</span>
+<span class="sd">        a weakness profile :math:`\\eta_i^j` </span>
+<span class="sd">        and its eroding surface position :math:`\\phi^j`.</span>
+<span class="sd">        </span>
+<span class="sd">        Attributes:</span>
+<span class="sd">            pdict (:obj:`dict`) : </span>
+<span class="sd">                model parameters dictionary, extended during &amp; after instantiation</span>
+<span class="sd">            nu_array  (:class:`numpy.ndarray`) :  discrete (in time) series of </span>
+<span class="sd">                                        dimensionless erosion rates :math:`\\nu^j` </span>
+<span class="sd">            </span>
+<span class="sd">            j (int) :  final time step index :math:`j`</span>
+<span class="sd">            nu_s_bar (:obj:`float`) : </span>
+<span class="sd">                post-hoc estimate (from averaging portion of solutions) of</span>
+<span class="sd">                               dimensionless steady-state erosion rate </span>
+<span class="sd">                               :math:`\\overline{\\nu}_s`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">W</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span>
         <span class="n">eta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta_array</span>
@@ -495,7 +558,7 @@ span the moving origin, as well as for all points chi&gt;=0.</p>
   <a href="../index.html">
     <img class="logo" src="../_static/../_images/wme_icon.png" alt="Logo"/>
     
-    <h1 class="logo logo-name">Weathering Mediated Erosion</h1>
+    <h1 class="logo logo-name">wme</h1>
     
   </a>
 </p>

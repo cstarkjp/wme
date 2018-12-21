@@ -56,7 +56,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = 'Weathering Mediated Erosion'
+project = 'wme'
 copyright = '2018, CPS'
 author = 'CPS'
 
@@ -232,7 +232,10 @@ intersphinx_mapping = {
              (None, './_intersphinx/pandas-objects.inv')),
    
    'scipy': ('https://docs.scipy.org/doc/scipy/reference',
-             (None, './_intersphinx/scipy-objects.inv'))
+             (None, './_intersphinx/scipy-objects.inv')),
+   
+   'sympy': ('http://docs.sympy.org/dev',
+             (None, './_intersphinx/sympy-objects.inv'))
    }
 
 # Napoleon settings

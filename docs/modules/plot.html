@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>plot.py &#8212; Weathering Mediated Erosion  documentation</title>
+    <title>plot.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -49,7 +49,7 @@ mass.</p>
 </ul>
 </dd>
 </dl>
-<p>Imports methods from <code class="xref py py-mod docutils literal notranslate"><span class="pre">wm_erosion</span></code>  module <a class="reference internal" href="solve1d.html#module-wme.solve1d" title="wme.solve1d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve1d</span></code></a></p>
+<p>Imports methods from <a class="reference internal" href="../index.html#module-wme" title="wme"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wme</span></code></a>  module <a class="reference internal" href="solve1d.html#module-wme.solve1d" title="wme.solve1d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve1d</span></code></a></p>
 <p>Imports symbols from <a class="reference internal" href="symbols.html#module-wme.symbols" title="wme.symbols"><code class="xref py py-mod docutils literal notranslate"><span class="pre">symbols</span></code></a> module</p>
 <hr class="docutils" />
 <dl class="function">
@@ -376,7 +376,7 @@ are shown as dashed lines. Explanatory annotations are included.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
-<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.ErosionWeatheringModel" title="wme.theory.ErosionWeatheringModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeatheringModel</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
+<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.WeatheringMediatedErosion" title="wme.theory.WeatheringMediatedErosion"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeatheringMediatedErosion</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
 <li><strong>do_loglog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – flag whether to use log scales on both axes</li>
 <li><strong>nus_solns_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – set of numerical solutions of <span class="math notranslate">\(\nu_s\)</span></li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
@@ -401,7 +401,7 @@ low and high <span class="math notranslate">\(W\)</span> deviate from the full m
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
-<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.ErosionWeatheringModel" title="wme.theory.ErosionWeatheringModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeatheringModel</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
+<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.WeatheringMediatedErosion" title="wme.theory.WeatheringMediatedErosion"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeatheringMediatedErosion</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
 font size)</li>
 </ul>
@@ -421,7 +421,7 @@ font size)</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
-<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.ErosionWeatheringModel" title="wme.theory.ErosionWeatheringModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeatheringModel</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
+<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.WeatheringMediatedErosion" title="wme.theory.WeatheringMediatedErosion"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeatheringMediatedErosion</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
 font size)</li>
 </ul>
@@ -441,7 +441,7 @@ font size)</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
-<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.ErosionWeatheringModel" title="wme.theory.ErosionWeatheringModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeatheringModel</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
+<li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.WeatheringMediatedErosion" title="wme.theory.WeatheringMediatedErosion"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeatheringMediatedErosion</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
 <li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering-weakening rate profile reciprocal e-folding depth</li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
 font size)</li>
@@ -490,7 +490,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 <span class="sd">  -  mpl_toolkits.mplot3d_</span>
 <span class="sd">  -  :mod:`scipy.optimize`</span>
 
-<span class="sd">Imports methods from :mod:`wm_erosion`  module :mod:`.solve1d` </span>
+<span class="sd">Imports methods from :mod:`wme`  module :mod:`.solve1d` </span>
 
 <span class="sd">Imports symbols from :mod:`.symbols` module</span>
 
@@ -1126,7 +1126,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 <span class="sd">    Args:</span>
 <span class="sd">        fig (:obj:`Matplotlib figure &lt;matplotlib.figure.Figure&gt;`): </span>
 <span class="sd">            reference to :mod:`MatPlotLib/Pyplot &lt;matplotlib.pyplot&gt;` figure </span>
-<span class="sd">        em (:class:`~.theory.ErosionWeatheringModel`): </span>
+<span class="sd">        em (:class:`~.theory.WeatheringMediatedErosion`): </span>
 <span class="sd">                instance of 1d weathering-mediated erosion theory :mod:`~.theory` class</span>
 <span class="sd">        do_loglog (bool): </span>
 <span class="sd">            flag whether to use log scales on both axes</span>
@@ -1208,7 +1208,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 <span class="sd">    Args:</span>
 <span class="sd">        fig (:obj:`Matplotlib figure &lt;matplotlib.figure.Figure&gt;`): </span>
 <span class="sd">            reference to :mod:`MatPlotLib/Pyplot &lt;matplotlib.pyplot&gt;` figure </span>
-<span class="sd">        em (:class:`~.theory.ErosionWeatheringModel`): </span>
+<span class="sd">        em (:class:`~.theory.WeatheringMediatedErosion`): </span>
 <span class="sd">                instance of 1d weathering-mediated erosion theory :mod:`~.theory` class</span>
 <span class="sd">        text_label (list): text annotation as list of form (x-y coordinate, string, </span>
 <span class="sd">                           font size)</span>
@@ -1267,7 +1267,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 <span class="sd">    Args:</span>
 <span class="sd">        fig (:obj:`Matplotlib figure &lt;matplotlib.figure.Figure&gt;`): </span>
 <span class="sd">            reference to :mod:`MatPlotLib/Pyplot &lt;matplotlib.pyplot&gt;` figure </span>
-<span class="sd">        em (:class:`~.theory.ErosionWeatheringModel`): </span>
+<span class="sd">        em (:class:`~.theory.WeatheringMediatedErosion`): </span>
 <span class="sd">                instance of 1d weathering-mediated erosion theory :mod:`~.theory` class</span>
 <span class="sd">        k__ (float): </span>
 <span class="sd">            weathering-weakening rate profile reciprocal e-folding depth</span>
@@ -1294,7 +1294,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 <span class="sd">    Args:</span>
 <span class="sd">        fig (:obj:`Matplotlib figure &lt;matplotlib.figure.Figure&gt;`): </span>
 <span class="sd">            reference to :mod:`MatPlotLib/Pyplot &lt;matplotlib.pyplot&gt;` figure </span>
-<span class="sd">        em (:class:`~.theory.ErosionWeatheringModel`): </span>
+<span class="sd">        em (:class:`~.theory.WeatheringMediatedErosion`): </span>
 <span class="sd">                instance of 1d weathering-mediated erosion theory :mod:`~.theory` class</span>
 <span class="sd">        text_label (list): text annotation as list of form (x-y coordinate, string, </span>
 <span class="sd">                           font size)</span>
@@ -1413,7 +1413,7 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
   <a href="../index.html">
     <img class="logo" src="../_static/../_images/wme_icon.png" alt="Logo"/>
     
-    <h1 class="logo logo-name">Weathering Mediated Erosion</h1>
+    <h1 class="logo logo-name">wme</h1>
     
   </a>
 </p>

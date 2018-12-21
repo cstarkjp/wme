@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>theory.py &#8212; Weathering Mediated Erosion  documentation</title>
+    <title>theory.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -35,38 +35,144 @@
   <div class="section" id="module-wme.theory">
 <span id="theory-py"></span><h1><code class="docutils literal notranslate"><span class="pre">theory.py</span></code><a class="headerlink" href="#module-wme.theory" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
-<p>Module for …</p>
+<p>Module for <a class="reference external" href="http://docs.sympy.org/dev/modules/matrices/immutablematrices.html#module-sympy" title="(in SymPy v1.4.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a> exposition of weathering-mediated erosion theory</p>
 <hr class="docutils" />
 <dl class="docutils">
 <dt>Requires Python packages/modules:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a></li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></li>
+<li><a class="reference external" href="http://docs.sympy.org/dev/modules/matrices/immutablematrices.html#module-sympy" title="(in SymPy v1.4.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a></li>
 </ul>
 </dd>
 </dl>
 <p>Imports symbols from <a class="reference internal" href="symbols.html#module-wme.symbols" title="wme.symbols"><code class="xref py py-mod docutils literal notranslate"><span class="pre">symbols</span></code></a> module</p>
 <hr class="docutils" />
 <dl class="class">
-<dt id="wme.theory.ErosionWeatheringModel">
-<em class="property">class </em><code class="descclassname">wme.theory.</code><code class="descname">ErosionWeatheringModel</code><a class="headerlink" href="#wme.theory.ErosionWeatheringModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>TBD</p>
+<dt id="wme.theory.WeatheringMediatedErosion">
+<em class="property">class </em><code class="descclassname">wme.theory.</code><code class="descname">WeatheringMediatedErosion</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define &amp; solve equations that frame weathering-mediated erosion theory</p>
+<dl class="method">
+<dt id="wme.theory.WeatheringMediatedErosion.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize class instance.</p>
 <dl class="attribute">
-<dt id="wme.theory.ErosionWeatheringModel.xx">
-<code class="descname">xx</code><a class="headerlink" href="#wme.theory.ErosionWeatheringModel.xx" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>xx</em> – xxxx</p>
+<dt id="wme.theory.WeatheringMediatedErosion.W_eqn">
+<code class="descname">W_eqn</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.W_eqn" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering number:
+<span class="math notranslate">\(W = \dfrac{w_0}{k v_0}\)</span></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="wme.theory.ErosionWeatheringModel.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.ErosionWeatheringModel.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize class instance.</p>
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_W">
+<code class="descname">nus_eqn_W</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_W" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
+<span class="math notranslate">\(\nu_s = \dfrac{1}{2}(1+\sqrt{1+4W})\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_w0_v0">
+<code class="descname">nus_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
+<span class="math notranslate">\(\nu_s = \frac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.etas0_eqn_W">
+<code class="descname">etas0_eqn_W</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.etas0_eqn_W" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state surface weakness:
+<span class="math notranslate">\(\eta_{s0} = \dfrac{\sqrt{4 W + 1}}{2} + \frac{1}{2}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.etas0_eqn_w0_v0">
+<code class="descname">etas0_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.etas0_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state surface weakness:
+<span class="math notranslate">\(\eta_{s0} = \dfrac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_etas0">
+<code class="descname">nus_eqn_etas0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_etas0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
+<span class="math notranslate">\(\nu_s =  \eta_{s}(0)\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.vs_eqn_etas0_v0">
+<code class="descname">vs_eqn_etas0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.vs_eqn_etas0_v0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state erosion rate:
+<span class="math notranslate">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_etas0_vs">
+<code class="descname">v0_eqn_etas0_vs</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_etas0_vs" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
+<span class="math notranslate">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.vs_eqn_w0_v0">
+<code class="descname">vs_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.vs_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state erosion rate:
+<span class="math notranslate">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_vs_w0">
+<code class="descname">v0_eqn_vs_w0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_vs_w0" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
+<span class="math notranslate">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z">
+<code class="descname">v0_eqn_vr_h_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate: <span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,v_\mathrm{smooth},v_\mathrm{off}])(1-v_b)+v_b \right\}\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z">
+<code class="descname">w0_eqn_wr_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Eq" title="(in SymPy v1.4.dev)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weakness:
+<span class="math notranslate">\(w_0 =  w_r H_s[z,w_\mathrm{smooth},w_\mathrm{off}]\)</span></p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="wme.theory.ErosionWeatheringModel.step">
-<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>k</em>, <em>x0</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.ErosionWeatheringModel.step" title="Permalink to this definition">¶</a></dt>
-<dd><p>TBD.</p>
+<dt id="wme.theory.WeatheringMediatedErosion.step">
+<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>k</em>, <em>x0</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Step function at x0= <span class="math notranslate">\(x_0\)</span> and sharpness k= <span class="math notranslate">\(k\)</span>.</p>
+<p><span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[k(x-x_0)]}\right)\)</span></p>
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.x">
+<code class="descname">x</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.x" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>sympy.float</em> – abscissa <span class="math notranslate">\(x\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.x0">
+<code class="descname">x0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.x0" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – offset <span class="math notranslate">\(x_0\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wme.theory.WeatheringMediatedErosion.k">
+<code class="descname">k</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.k" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – step sharpness <span class="math notranslate">\(k\)</span></p>
+</dd></dl>
+
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">step function <span class="math notranslate">\(H_s\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -76,7 +182,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">---------------------------------------------------------------------</span>
 
-<span class="sd">Module for ... </span>
+<span class="sd">Module for :mod:`sympy` exposition of weathering-mediated erosion theory</span>
 
 <span class="sd">---------------------------------------------------------------------</span>
 
@@ -98,17 +204,52 @@
 
 
 
-<span class="k">class</span> <span class="nc">ErosionWeatheringModel</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">WeatheringMediatedErosion</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TBD</span>
+<span class="sd">    Define &amp; solve equations that frame weathering-mediated erosion theory</span>
 <span class="sd">    </span>
-<span class="sd">    Attributes:</span>
-<span class="sd">        xx (xx) : xxxx</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize class instance.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            W_eqn           (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                weathering number: </span>
+<span class="sd">                :math:`W = \\dfrac{w_0}{k v_0}`</span>
+<span class="sd">            nus_eqn_W       (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                dimensionless steady-state erosion rate: </span>
+<span class="sd">                :math:`\\nu_s = \\dfrac{1}{2}(1+\\sqrt{1+4W})`</span>
+<span class="sd">            nus_eqn_w0_v0   (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                dimensionless steady-state erosion rate:</span>
+<span class="sd">                :math:`\\nu_s = \\frac{\\sqrt{1 + \\frac{4 w_{0}}{k v_{0}}}}{2} + \\frac{1}{2}`</span>
+<span class="sd">            etas0_eqn_W     (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                steady-state surface weakness:</span>
+<span class="sd">                :math:`\\eta_{s0} = \\dfrac{\\sqrt{4 W + 1}}{2} + \\frac{1}{2}`</span>
+<span class="sd">            etas0_eqn_w0_v0 (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                steady-state surface weakness:</span>
+<span class="sd">                :math:`\\eta_{s0} = \\dfrac{\\sqrt{1 + \\frac{4 w_{0}}{k v_{0}}}}{2} + \\frac{1}{2}`</span>
+<span class="sd">            nus_eqn_etas0   (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                dimensionless steady-state erosion rate:</span>
+<span class="sd">                :math:`\\nu_s =  \\eta_{s}(0)`</span>
+<span class="sd">            vs_eqn_etas0_v0 (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                steady-state erosion rate:</span>
+<span class="sd">                :math:`v_{s} = \\eta_{s}(0) v_{0}`</span>
+<span class="sd">            v0_eqn_etas0_vs (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                erosion rate:</span>
+<span class="sd">                :math:`v_{0} = \\dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}`</span>
+<span class="sd">            vs_eqn_w0_v0    (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                steady-state erosion rate:</span>
+<span class="sd">                :math:`v_{s} = \\eta_{s}(0) v_{0}`</span>
+<span class="sd">            v0_eqn_vs_w0    (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                erosion rate:</span>
+<span class="sd">                :math:`v_{0} = \\dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}`</span>
+<span class="sd">            v0_eqn_vr_h_z   (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                erosion rate: :math:`v_0 =  v_r \\left\{ (h-H_s[z,v_\\mathrm{smooth},v_\\mathrm{off}])(1-v_b)+v_b \\right\}`</span>
+<span class="sd">            w0_eqn_wr_z     (:attr:`sympy.Eq &lt;sympy.core.relational.Eq&gt;`) : </span>
+<span class="sd">                weakness:</span>
+<span class="sd">                :math:`w_0 =  w_r H_s[z,w_\\mathrm{smooth},w_\\mathrm{off}]`         </span>
+<span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W_eqn</span>           <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">w_0</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">v_0</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nus_eqn_W</span>       <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">nu_s</span><span class="p">,(</span><span class="mi">1</span><span class="o">+</span><span class="n">sy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">W</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
@@ -120,14 +261,26 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_etas0_vs</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_etas0_v0</span><span class="p">,</span><span class="n">v_0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span>    <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nus_eqn_w0_v0</span><span class="o">.</span><span class="n">rhs</span><span class="o">*</span><span class="n">v_0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vs_w0</span>    <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span><span class="p">,</span><span class="n">v_0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span>   <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> <span class="n">v_r</span><span class="o">*</span><span class="p">((</span><span class="n">h</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">v_smooth</span><span class="p">,</span><span class="n">v_off</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v_b</span><span class="p">)</span><span class="o">+</span><span class="n">v_b</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span>   <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> 
+                                  <span class="n">v_r</span><span class="o">*</span><span class="p">(</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">v_smooth</span><span class="p">,</span><span class="n">v_off</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v_b</span><span class="p">)</span><span class="o">+</span><span class="n">v_b</span> <span class="p">)</span> 
+                                  <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span>     <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">w_0</span><span class="p">,</span> <span class="n">w_r</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">w_smooth</span><span class="p">,</span><span class="n">w_off</span><span class="p">))</span>
 
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">x0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        TBD.</span>
+<span class="sd">        Step function at x0= :math:`x_0` and sharpness k= :math:`k`.</span>
+<span class="sd">        </span>
+<span class="sd">        :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[k(x-x_0)]}\\right)`</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            x (sympy.float)  : abscissa :math:`x`        </span>
+<span class="sd">            x0 (float) : offset :math:`x_0`        </span>
+<span class="sd">            k (float)  : step sharpness :math:`k`   </span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            float: step function :math:`H_s`               </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sy</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 
@@ -149,7 +302,7 @@
   <a href="../index.html">
     <img class="logo" src="../_static/../_images/wme_icon.png" alt="Logo"/>
     
-    <h1 class="logo logo-name">Weathering Mediated Erosion</h1>
+    <h1 class="logo logo-name">wme</h1>
     
   </a>
 </p>

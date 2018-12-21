@@ -1,7 +1,7 @@
 """
 ---------------------------------------------------------------------
 
-Module for 
+Module applying the weathering-mediated erosion model to bedrock channel geometry
 
 ---------------------------------------------------------------------
 
@@ -24,22 +24,42 @@ from .symbols import *
 
 class ChannelWall:
     """
-    Numerical solution of ...
+    Numerical solution of combined models of weathering-mediated erosion & bedrock channel
     
-    Class that provides ...
-    
+    Class that provides numerical solution of a combination model 1d weathering-mediated
+    erosion and 1+1d bedrock channel cross-section (at the channel wall).
     
     Args:
+        em (:class:`~.theory.WeatheringMediatedErosion`): 
+                instance of 1d weathering-mediated erosion theory :mod:`~.theory` class
         pdict (dict): model parameters dictionary
-        
-    Attributes:
-        pdict (dict) : model parameters dictionary, extended during & after instantiation
         
         
     """
     def __init__(self, em, pdict):
         """
         Initialize class instance.
+
+        Attributes:
+            pdict (:obj:`dict`) : 
+                model parameters dictionary, extended during & after instantiation
+
+            v0_eqn_vr_h_z (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            w0_eqn_wr_z (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            vs_eqn_vr (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            w0_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            v0_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            W_calibrated  (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+            vs_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                
+
+            
         """
         self.pdict = pdict
         self.v0_eqn_vr_h_z = em.v0_eqn_vr_h_z.subs(pdict)
@@ -54,9 +74,34 @@ class ChannelWall:
 
     def compute_vertical_profiles(self, n_pts=100):
         """
-        Use ...
+        Compute dependence of various properties with height above channel base
+
+        Args:
+            n_pts (int): 
+                number of sampling points along vertical profile  
+
+        Attributes:
+            n_pts (:obj:`int`): 
+                record of number of sampling points
+            z_array  (:class:`numpy.ndarray`) :
+                sample points along vertical profile 
+            vs_calibrated (:attr:`sympy.Eq <sympy.core.relational.Eq>`) : 
+                weathering-mediated surface-normal erosion rate at steady state
+                calibrated by model parameters supplied in :attr:`wme.pdict`
+            w0_array (:class:`numpy.ndarray`) :
+                surface weakness along vertical profile (at steady state)
+            v0_array (:class:`numpy.ndarray`) :
+                baseline (absent weathering-driven weakening) surface-normal erosion rate 
+                along vertical profile  (at steady state)
+            vs_array (:class:`numpy.ndarray`) :
+                weathering-mediated surface-normal erosion rate along vertical profile 
+                (at steady state)
+            eta0_array (:class:`numpy.ndarray`) :
+                surface weakness along vertical profile (at steady state)
+            W_array (:class:`numpy.ndarray`) :
+                weathering number along vertical profile
+
         """
-#         self.pdict.update({})
         self.n_pts = n_pts
         self.z_array  = np.linspace(0,1,self.n_pts)
         self.w0_array = np.array([
@@ -78,7 +123,20 @@ class ChannelWall:
     
     def compute_cross_section(self):
         """
-        Use ...
+        Compute dependence of various properties with height above channel base
+        
+        Attributes:
+            vs_array (:class:`numpy.ndarray`) :
+                
+            dzdy_array (:class:`numpy.ndarray`) :
+                
+            y_array (:class:`numpy.ndarray`) :
+                
+            ch_y_array (:class:`numpy.ndarray`) :
+                
+            ch_z_array (:class:`numpy.ndarray`) :
+                
+
         """
         self.vs_array = np.array([
             np.float64(self.vs_calibrated.rhs.subs(z,z__)) for z__ in self.z_array])

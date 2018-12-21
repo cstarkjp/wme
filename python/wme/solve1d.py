@@ -31,19 +31,22 @@ def negExpH(chi,dchi):
     Assumes the argument chi= :math:`\\chi`
     is the dimensionless distance from the erosion front, 
     and dchi= :math:`\\Delta\\chi`  is the discrete spatial step size.
-    Exponentiates -chi*H(chi+dchi) where H=Heaviside function.
-    When invoked in computing d{eta}/d{chi}, adding dchi means a non-clipped
-    value is returned for the sample point just to the left (-ve chi).
-    Thus the eta gradient is estimated across the erosion front, where sample points
-    span the moving origin, as well as for all points chi>=0.
+    Exponentiates :math:`-\\chi H(\\chi+\\Delta\\chi)` where H=Heaviside function.
+    When invoked in computing :math:`d{\\eta}/d{\\chi}`, 
+    adding :math:`\\Delta\\chi` means a non-clipped
+    value is returned for the sample point just to the left (-ve :math:`\\chi`).
+    Thus the :math:`\\eta` gradient is estimated across the erosion front, 
+    where sample points
+    span the moving origin, as well as for all points :math:`\\chi\\geq 0`.
     
     Args:
-        chi (float): distance from the erosion front
-        dchi (float): discrete spacing between sample points along x
+        chi (float): distance :math:`\\chi` from the erosion front
+        dchi (float): discrete spacing :math:`\\Delta\\chi` 
+            between sample points along :math:`\\chi`
     
     Returns:
         float:
-            exp(-chi) if chi+dchi>=0, 1 otherwise
+            :math:`\\exp(-\\chi)` if :math:`\\chi+\\Delta\\chi \\geq 0`, 1 otherwise
     """
     return np.exp(-chi*np.heaviside(chi+dchi,0))
 
@@ -65,29 +68,33 @@ def eta_chi_tau(chi,tau,W):
     """
     Weathering-driven weakness function.
     
-    Analytic solution for eta(chi,tau) as a function of dimensionless distance
-    (depth into the rock) chi and time tau, and parameterized
-    by weathering number W, assuming an exponential-decay model for weathering.
+    Analytic solution for :math:`\\eta(\\chi,\\tau)` 
+    as a function of dimensionless distance
+    (depth into the rock) :math:`\\chi` and time :math:`\\tau`, and parameterized
+    by weathering number :math:`W`, assuming an exponential-decay model for weathering.
     
     Args:
-        tau (float): dimensionless time
-        chi (float): dimensionless distance
-        W (float): weathering number
+        tau (float): dimensionless time :math:`\\tau`
+        chi (float): dimensionless distance :math:`\\chi`
+        W (float):   weathering number :math:`W`
     
     Returns:
-        float:
-            eta(chi,tau;W)
+        float: 
+            weakness :math:`\\eta(\\chi,\\tau;W)`
     """
     return (1+(W/nu_s_W(W))*np.exp(-(chi)))*np.heaviside(chi,0)
 
 
 class ErosionWeathering:
     """
-    Numerical solution of eta(chi,tau)  and phi(tau) evolution 
+    Numerical solution of :math:`\\eta(\\chi,\\tau)` 
+    and :math:`\\varphi(\\tau)` evolution 
     
-    Class that provides a finite-difference method for solving the (chi,tau) evolution
-    of a weakness profile eta(chi,tau) and its eroding surface position phi(t)
-    as 2d array eta_i^j and 1d vector phi^j respectively.
+    Class that provides a finite-difference method for solving the 
+    :math:`(chi,tau)` evolution
+    of a weakness profile :math:`\\eta(\\chi,\\tau)`
+    and its eroding surface position :math:`\\varphi(\\tau)`
+    as 2d array :math:`\\eta_i^j` and 1d vector :math:`\\varphi^j` respectively.
     and that provides dictionaries for the model and its numerical solution
     parameters.
     
@@ -96,41 +103,56 @@ class ErosionWeathering:
         pdict (dict): model parameters dictionary
         ndict (dict): numerical method parameters dictionary
         
-    Attributes:
-        pdict (dict) : model parameters dictionary, extended during & after instantiation
-        ndict (dict) : numerical method parameters dictionary
-        
-        chi_domain_size (float):  length of chi solution domain 
-                                    (extracted from ndict)
-        Delta_chi (float):        spacing between discrete chi solution points 
-                                    (extracted from ndict)
-        n_chi_domain (int):       number of solution points in distance chi 
-                                    (extracted from ndict)
-        tau_domain_size (float):  maximum duration of solution (truncated if/when front 
-                                  exits chi domain) (extracted from ndict)
-        tau_n_steps (int):        number of solution points in time tau
-        Delta_tau (float):        spacing between discrete tau solution points
 
-        chi_array (numpy.ndarray) : chi_i discrete distances
-        tau_array (numpy.ndarray) : tau^j discrete times
-        eta_array (numpy.ndarray) : eta_i^j discretized weakness profile
-        phi_array (numpy.ndarray) : phi^j discrete (in time) series of erosion front 
-                                    positions (smoothly resolved as floats)
-        nu_array  (numpy.ndarray) : nu^j  discrete (in time) series of 
-                                    dimensionless erosion rates
-        
-        j (int)        :  final time step index
-
-        W (float)    : weathering number
-        nu_s (float) : predicted (by analytical solution) dimensionless 
-                            steady-state erosion rate
-        v_s (float)  : predicted (by analytical solution)  steady-state erosion rate
-        nu_s_bar (float) : post-hoc estimate (from averaging portion of solutions) of
-                           dimensionless steady-state erosion rate
     """
     def __init__(self, pdict, ndict):
         """
         Initialize class instance.
+        
+        
+        Attributes:
+            pdict (:obj:`dict`) : 
+                model parameters dictionary, extended during & after instantiation
+            ndict (:obj:`dict`) : 
+                numerical method parameters dictionary
+            
+            chi_domain_size (:obj:`float`):  
+                length of chi solution domain (extracted from ndict)
+            Delta_chi (:obj:`float`):        
+                spacing between discrete chi solution points (extracted from ndict)
+            n_chi_domain (:obj:`int`):       
+                number of solution points in distance chi (extracted from ndict)
+            tau_domain_size (:obj:`float`):  
+                maximum duration of solution (truncated if/when front 
+                exits chi domain) (extracted from ndict)
+            tau_n_steps (:obj:`int`):        
+                number of solution points in time tau
+            Delta_tau (:obj:`float`):        
+                spacing between discrete tau solution points
+    
+            chi_array (:class:`numpy.ndarray`) : 
+                discrete distances :math:`\\chi_i` 
+            tau_array (:class:`numpy.ndarray`) : 
+                discrete times :math:`\\tau^j`
+            eta_array (:class:`numpy.ndarray`) : 
+                discretized weakness profile :math:`\\eta_i^j`
+            phi_array (:class:`numpy.ndarray`) : 
+                discrete (in time) series of erosion front 
+                positions :math:`\\phi^j` (smoothly resolved as floats)
+            nu_array  (:class:`numpy.ndarray`) :  
+                discrete (in time) series of 
+                dimensionless erosion rates :math:`\\nu^j` 
+            
+            j (:obj:`int`) :  
+                final time step index :math:`j`
+    
+            W (:obj:`float`)    : 
+                weathering number :math:`W`
+            nu_s (:obj:`float`) : 
+                predicted (by analytical solution) dimensionless 
+                steady-state erosion rate :math:`\\nu_s`
+            v_s (:obj:`float`)  : 
+                predicted (by analytical solution) steady-state erosion rate :math:`v_s`     
         """
         self.pdict = pdict
         self.W     = pdict[w_0]/(pdict[k]*pdict[v_0])
@@ -160,7 +182,20 @@ class ErosionWeathering:
     def solve(self):
         """
         Use an explicit finite-difference scheme to solve for evolution of
-        a weakness profile eta_i^j and its eroding surface position phi^j.
+        a weakness profile :math:`\\eta_i^j` 
+        and its eroding surface position :math:`\\phi^j`.
+        
+        Attributes:
+            pdict (:obj:`dict`) : 
+                model parameters dictionary, extended during & after instantiation
+            nu_array  (:class:`numpy.ndarray`) :  discrete (in time) series of 
+                                        dimensionless erosion rates :math:`\\nu^j` 
+            
+            j (int) :  final time step index :math:`j`
+            nu_s_bar (:obj:`float`) : 
+                post-hoc estimate (from averaging portion of solutions) of
+                               dimensionless steady-state erosion rate 
+                               :math:`\\overline{\\nu}_s`
         """
         W   = self.W
         eta = self.eta_array

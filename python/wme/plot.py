@@ -649,7 +649,7 @@ def plot_nus_W(fig, em, do_loglog=True, nus_solns_list=None, text_label=None):
     Args:
         fig (:obj:`Matplotlib figure <matplotlib.figure.Figure>`): 
             reference to :mod:`MatPlotLib/Pyplot <matplotlib.pyplot>` figure 
-        em (:class:`~.theory.ErosionWeatheringModel`): 
+        em (:class:`~.theory.WeatheringMediatedErosion`): 
                 instance of 1d weathering-mediated erosion theory :mod:`~.theory` class
         do_loglog (bool): 
             flag whether to use log scales on both axes
@@ -731,7 +731,7 @@ def plot_nus_W_transition(fig, em, text_label=None):
     Args:
         fig (:obj:`Matplotlib figure <matplotlib.figure.Figure>`): 
             reference to :mod:`MatPlotLib/Pyplot <matplotlib.pyplot>` figure 
-        em (:class:`~.theory.ErosionWeatheringModel`): 
+        em (:class:`~.theory.WeatheringMediatedErosion`): 
                 instance of 1d weathering-mediated erosion theory :mod:`~.theory` class
         text_label (list): text annotation as list of form (x-y coordinate, string, 
                            font size)
@@ -790,7 +790,7 @@ def plot_v0_vs_w0(fig, em, k__=1, text_label=None):
     Args:
         fig (:obj:`Matplotlib figure <matplotlib.figure.Figure>`): 
             reference to :mod:`MatPlotLib/Pyplot <matplotlib.pyplot>` figure 
-        em (:class:`~.theory.ErosionWeatheringModel`): 
+        em (:class:`~.theory.WeatheringMediatedErosion`): 
                 instance of 1d weathering-mediated erosion theory :mod:`~.theory` class
         k__ (float): 
             weathering-weakening rate profile reciprocal e-folding depth
@@ -817,7 +817,7 @@ def plot_v0_vs_etas0(fig, em, text_label=None):
     Args:
         fig (:obj:`Matplotlib figure <matplotlib.figure.Figure>`): 
             reference to :mod:`MatPlotLib/Pyplot <matplotlib.pyplot>` figure 
-        em (:class:`~.theory.ErosionWeatheringModel`): 
+        em (:class:`~.theory.WeatheringMediatedErosion`): 
                 instance of 1d weathering-mediated erosion theory :mod:`~.theory` class
         text_label (list): text annotation as list of form (x-y coordinate, string, 
                            font size)
