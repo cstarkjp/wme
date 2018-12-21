@@ -27,7 +27,7 @@ Set up & execution
    
    Prerequisites <documentation/prerequisites>
    Installation <documentation/install>
-   How to run <documentation/howtorun> 
+   Running <documentation/howtorun> 
 
 
 
