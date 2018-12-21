@@ -20,7 +20,7 @@ The `code`_ is provided as a `Python3 package`_ and an `IPython Jupyter notebook
 
 
 -----------------------------------------------------------
-Installation
+Setting up
 -----------------------------------------------------------
 
  
