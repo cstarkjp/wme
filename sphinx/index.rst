@@ -14,9 +14,14 @@ steep bedrock channel walls.
 The current treatment is 1d only, and for expository purposes it simplistically assumes 
 an exponentially decaying weakening profile with depth into the rock.
 
-The `code`_ is provided as a `Python3 package`_ and an `IPython Jupyter notebook`_.
 
 -----------------------------------------------------------
+Code
+-----------------------------------------------------------
+
+The `wme`_ code is provided as a :ref:`Python3 package <genindex>`
+and a `Jupyter (IPython) notebook`_.
+
 Set up & execution
 -----------------------------------------------------------
 
@@ -30,18 +35,28 @@ Set up & execution
 
 
 
------------------------------------------------------------
-Code
------------------------------------------------------------
 
-The :mod:`wme` package consists of a set of Python modules:ref:`genindex`.
-
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   modules/initialize   
+   modules/symbols
+   modules/data
+   modules/theory
+   modules/solve1d
+   modules/solve1p1d
+   modules/plot
+   modules/save
+  
+.. only:: html 
 
 ..  _Python3 package: 
       https://github.com/cstarknyc/wme/tree/master/python
-.. _IPython Jupyter notebook: 
+.. _Jupyter (IPython) notebook: 
       https://github.com/cstarknyc/wme/blob/master/experiments1d/wme1d.ipynb
 .. _code: https://github.com/cstarknyc/wme
+.. _wme: https://github.com/cstarknyc/wme
 .. _example results: 
       https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
 
