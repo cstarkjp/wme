@@ -72,49 +72,50 @@ erosion and 1+1d bedrock channel cross-section (at the channel wall).</p>
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.pdict">
 <code class="descname">pdict</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.pdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary, extended during &amp; after instantiation</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.v0_eqn_vr_h_z">
-<code class="descname">v0_eqn_vr_h_z</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.v0_eqn_vr_h_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
+<dt id="wme.solve1p1d.ChannelWall.w0_eqn_z_calibrated">
+<code class="descname">w0_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.w0_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface weakness calibrated using model parameters:
+<span class="math notranslate">\(w_0 =  w_r H_s[z,z_\mathrm{wc},k_\mathrm{w}]\)</span>
+where
+<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_w(z-z_\mathrm{wc}]}\right)\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.w0_eqn_wr_z">
-<code class="descname">w0_eqn_wr_z</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.w0_eqn_wr_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
+<dt id="wme.solve1p1d.ChannelWall.v0_eqn_z_calibrated">
+<code class="descname">v0_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.v0_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate calibrated using model parameters:
+<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+where
+<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.vs_eqn_vr">
-<code class="descname">vs_eqn_vr</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_eqn_vr" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
+<dt id="wme.solve1p1d.ChannelWall.vs_eqn">
+<code class="descname">vs_eqn</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_eqn" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface-normal erosion rate (uncalibrated)
+<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+where
+<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.w0_calibrated">
-<code class="descname">w0_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.w0_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
+<dt id="wme.solve1p1d.ChannelWall.W_eqn_z_calibrated">
+<code class="descname">W_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.W_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering number calibrated using model parameters:
+<span class="math notranslate">\(W = \dfrac{w_0}{k v_0}\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.v0_calibrated">
-<code class="descname">v0_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.v0_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.W_calibrated">
-<code class="descname">W_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.W_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="wme.solve1p1d.ChannelWall.vs_calibrated">
-<code class="descname">vs_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></p>
+<dt id="wme.solve1p1d.ChannelWall.vs_eqn_z_calibrated">
+<code class="descname">vs_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface-normal erosion rate calibrated using model parameters:
+<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+where
+<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
 </dd></dl>
 
 </dd></dl>
@@ -126,31 +127,33 @@ erosion and 1+1d bedrock channel cross-section (at the channel wall).</p>
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.vs_array">
 <code class="descname">vs_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering-mediated surface-normal erosion rate along vertical profile
+(at steady state)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.dzdy_array">
 <code class="descname">dzdy_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.dzdy_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering-mediated vertical erosion rate along vertical profile
+(at steady state)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.y_array">
 <code class="descname">y_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.y_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – horizontal positions of sample points along vertica profile</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.ch_y_array">
 <code class="descname">ch_y_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.ch_y_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – horizontal positions of sample points along channel boundary</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.ch_z_array">
 <code class="descname">ch_z_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.ch_z_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – vertical positions of sample points along channel boundary</p>
 </dd></dl>
 
 </dd></dl>
@@ -181,7 +184,7 @@ erosion and 1+1d bedrock channel cross-section (at the channel wall).</p>
 
 <dl class="attribute">
 <dt>
-<code class="descname">vs_calibrated</code></dt>
+<code class="descname">vs_eqn_z_calibrated</code></dt>
 <dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering-mediated surface-normal erosion rate at steady state
 calibrated by model parameters supplied in <code class="xref py py-attr docutils literal notranslate"><span class="pre">wme.pdict</span></code></p>
 </dd></dl>
@@ -268,35 +271,38 @@ along vertical profile  (at steady state)</p>
 
 <span class="sd">        Attributes:</span>
 <span class="sd">            pdict (:obj:`dict`) : </span>
-<span class="sd">                model parameters dictionary, extended during &amp; after instantiation</span>
-
-<span class="sd">            v0_eqn_vr_h_z (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            w0_eqn_wr_z (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            vs_eqn_vr (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            w0_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            v0_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            W_calibrated  (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-<span class="sd">            vs_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                </span>
-
-<span class="sd">            </span>
+<span class="sd">                model parameters dictionary</span>
+<span class="sd">            w0_eqn_z_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">                surface weakness calibrated using model parameters: </span>
+<span class="sd">                :math:`w_0 =  w_r H_s[z,z_\\mathrm{wc},k_\\mathrm{w}]`         </span>
+<span class="sd">                where </span>
+<span class="sd">                :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa_w(z-z_\\mathrm{wc}]}\\right)`</span>
+<span class="sd">            v0_eqn_z_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">                erosion rate calibrated using model parameters: </span>
+<span class="sd">                :math:`v_0 =  v_r \\left\{ (h-H_s[z,z_\\mathrm{vc},k_\\mathrm{v}])(1-v_b)+v_b \\right\}`</span>
+<span class="sd">                where </span>
+<span class="sd">                :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa_v(z-z_\\mathrm{vc}]}\\right)`</span>
+<span class="sd">            vs_eqn (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">                surface-normal erosion rate (uncalibrated)</span>
+<span class="sd">                :math:`v_0 =  v_r \\left\{ (h-H_s[z,z_\\mathrm{vc},k_\\mathrm{v}])(1-v_b)+v_b \\right\}`</span>
+<span class="sd">                where </span>
+<span class="sd">                :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa_v(z-z_\\mathrm{vc}]}\\right)`</span>
+<span class="sd">            W_eqn_z_calibrated  (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">                weathering number calibrated using model parameters: </span>
+<span class="sd">                :math:`W = \\dfrac{w_0}{k v_0}`</span>
+<span class="sd">            vs_eqn_z_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">                surface-normal erosion rate calibrated using model parameters: </span>
+<span class="sd">                :math:`v_0 =  v_r \\left\{ (h-H_s[z,z_\\mathrm{vc},k_\\mathrm{v}])(1-v_b)+v_b \\right\}`</span>
+<span class="sd">                where </span>
+<span class="sd">                :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa_v(z-z_\\mathrm{vc}]}\\right)`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pdict</span> <span class="o">=</span> <span class="n">pdict</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">pdict</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">pdict</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_vr</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">v_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span>
-                        
-        <span class="bp">self</span><span class="o">.</span><span class="n">w0_calibrated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">v0_calibrated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W_calibrated</span>  <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">W_eqn</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vs_calibrated</span> \
-            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_vr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">w_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_z_calibrated</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_z_calibrated</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_eqn_z_calibrated</span>  <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">W_eqn</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">v_0</span><span class="p">:</span><span class="n">em</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_z_calibrated</span> \
+            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">w_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">compute_vertical_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_pts</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -311,7 +317,7 @@ along vertical profile  (at steady state)</p>
 <span class="sd">                record of number of sampling points</span>
 <span class="sd">            z_array  (:class:`numpy.ndarray`) :</span>
 <span class="sd">                sample points along vertical profile </span>
-<span class="sd">            vs_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
+<span class="sd">            vs_eqn_z_calibrated (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
 <span class="sd">                weathering-mediated surface-normal erosion rate at steady state</span>
 <span class="sd">                calibrated by model parameters supplied in :attr:`wme.pdict`</span>
 <span class="sd">            w0_array (:class:`numpy.ndarray`) :</span>
@@ -331,20 +337,19 @@ along vertical profile  (at steady state)</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_pts</span> <span class="o">=</span> <span class="n">n_pts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_pts</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">w0_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v0_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v0_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eta0_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">v0_array</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span>  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span>  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span>
                             <span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">v_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">v0_array</span><span class="p">[</span><span class="n">idx</span><span class="p">]})</span>
                             <span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">w_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_array</span><span class="p">[</span><span class="n">idx</span><span class="p">]})</span>  <span class="p">)</span>
                                 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">z__</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">)])</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">vs_calibrated</span> \
-            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_vr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">w_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_z_calibrated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">w_0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="p">})</span> \
+                                        <span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdict</span><span class="p">)</span>
     
     
     <span class="k">def</span> <span class="nf">compute_cross_section</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -353,22 +358,25 @@ along vertical profile  (at steady state)</p>
 <span class="sd">        </span>
 <span class="sd">        Attributes:</span>
 <span class="sd">            vs_array (:class:`numpy.ndarray`) :</span>
-<span class="sd">                </span>
+<span class="sd">                weathering-mediated surface-normal erosion rate along vertical profile </span>
+<span class="sd">                (at steady state)                </span>
 <span class="sd">            dzdy_array (:class:`numpy.ndarray`) :</span>
-<span class="sd">                </span>
+<span class="sd">                weathering-mediated vertical erosion rate along vertical profile </span>
+<span class="sd">                (at steady state)</span>
 <span class="sd">            y_array (:class:`numpy.ndarray`) :</span>
-<span class="sd">                </span>
+<span class="sd">                horizontal positions of sample points along vertica profile</span>
 <span class="sd">            ch_y_array (:class:`numpy.ndarray`) :</span>
-<span class="sd">                </span>
+<span class="sd">                horizontal positions of sample points along channel boundary</span>
 <span class="sd">            ch_z_array (:class:`numpy.ndarray`) :</span>
-<span class="sd">                </span>
+<span class="sd">                vertical positions of sample points along channel boundary</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">dzdy_array</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y_array</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">cumtrapz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dzdy_array</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_z_calibrated</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z__</span><span class="p">))</span> <span class="k">for</span> <span class="n">z__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dzdy_array</span> \
+            <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_array</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_array</span> \
+            <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">cumtrapz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dzdy_array</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_y_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
             <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="p">)</span><span class="o">*</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">z_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="bp">self</span><span class="o">.</span><span class="n">y_array</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_z_array</span> \
@@ -411,10 +419,8 @@ along vertical profile  (at steady state)</p>
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>

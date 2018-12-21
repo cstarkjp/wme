@@ -64,10 +64,11 @@ class WeatheringMediatedErosion:
                 erosion rate:
                 :math:`v_{0} = \\dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}`
             v0_eqn_vr_h_z   (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
-                erosion rate: :math:`v_0 =  v_r \\left\{ (h-H_s[z,v_\\mathrm{smooth},v_\\mathrm{off}])(1-v_b)+v_b \\right\}`
+                erosion rate: 
+                :math:`v_0 =  v_r \\left\{ (h-H_s[z,z_\\mathrm{vc},\\kappa_\\mathrm{v}])(1-v_b)+v_b \\right\}`
             w0_eqn_wr_z     (:class:`sympy.Eq <sympy.core.relational.Equality>`) : 
-                weakness:
-                :math:`w_0 =  w_r H_s[z,w_\\mathrm{smooth},w_\\mathrm{off}]`         
+                surface weakness:
+                :math:`w_0 =  w_r H_s[z,z_\\mathrm{wc},\\kappa_w]`         
             
         """
         self.W_eqn           = Eq(W,w_0/(k*v_0))
@@ -81,27 +82,27 @@ class WeatheringMediatedErosion:
         self.vs_eqn_w0_v0    = Eq(v_s, self.nus_eqn_w0_v0.rhs*v_0)
         self.v0_eqn_vs_w0    = Eq(v_0, sy.solve(self.vs_eqn_w0_v0,v_0)[0])
         self.v0_eqn_vr_h_z   = Eq(v_0, 
-                                  v_r*( (h-self.step(z,v_smooth,v_off))*(1-v_b)+v_b ) 
+                                  v_r*( (h-self.step(z,z_vc,kappa_v))*(1-v_b)+v_b ) 
                                   )
-        self.w0_eqn_wr_z     = Eq(w_0, w_r*self.step(z,w_smooth,w_off))
+        self.w0_eqn_wr_z     = Eq(w_0, w_r*self.step(z,z_wc,kappa_w))
 
 
     @staticmethod
-    def step(x,k,x0):
+    def step(z,z0,kappa):
         """
-        Step function at x0= :math:`x_0` and sharpness k= :math:`k`.
+        Step function at x0= :math:`z_0` and sharpness k= :math:`k`.
         
-        :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[k(x-x_0)]}\\right)`
+        :math:`H_s(z,z_0,\\kappa) = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa(z-z_0)]}\\right)`
 
         Attributes:
-            x (sympy.float)  : abscissa :math:`x`        
-            x0 (float) : offset :math:`x_0`        
-            k (float)  : step sharpness :math:`k`   
+            z (sympy.float)  : abscissa :math:`z`        
+            z0 (float) : offset :math:`z_0`        
+            kappa (float)  : step sharpness :math:`\\kappa`   
             
         Returns:
             float: step function :math:`H_s`               
         """
-        return (1+sy.tanh((x-x0)*k))/2
+        return (1+sy.tanh((z-z0)*kappa))/2
 
 
 

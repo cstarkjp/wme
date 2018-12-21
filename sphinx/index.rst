@@ -9,9 +9,8 @@ Exploration of weathering-driven weakening on rock erosion.
 .. image:: images/highW_evolution.png 
    :target: https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
 
-The focus is on environments with no soil accumulation: for example, on 
-steep bedrock channel walls.
-
+The focus is on environments with no soil accumulation such as on 
+steep bedrock channel walls. 
 The current treatment is 1d only, and for expository purposes it simplistically assumes 
 an exponentially decaying weakening profile with depth into the rock.
 

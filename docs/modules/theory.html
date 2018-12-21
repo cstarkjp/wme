@@ -128,39 +128,40 @@
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z">
 <code class="descname">v0_eqn_vr_h_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate: <span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,v_\mathrm{smooth},v_\mathrm{off}])(1-v_b)+v_b \right\}\)</span></p>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
+<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},\kappa_\mathrm{v}])(1-v_b)+v_b \right\}\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z">
 <code class="descname">w0_eqn_wr_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weakness:
-<span class="math notranslate">\(w_0 =  w_r H_s[z,w_\mathrm{smooth},w_\mathrm{off}]\)</span></p>
+<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface weakness:
+<span class="math notranslate">\(w_0 =  w_r H_s[z,z_\mathrm{wc},\kappa_w]\)</span></p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="wme.theory.WeatheringMediatedErosion.step">
-<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>k</em>, <em>x0</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Step function at x0= <span class="math notranslate">\(x_0\)</span> and sharpness k= <span class="math notranslate">\(k\)</span>.</p>
-<p><span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[k(x-x_0)]}\right)\)</span></p>
+<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>z0</em>, <em>kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Step function at x0= <span class="math notranslate">\(z_0\)</span> and sharpness k= <span class="math notranslate">\(k\)</span>.</p>
+<p><span class="math notranslate">\(H_s(z,z_0,\kappa) = \dfrac{1}{2}\left(1 + \tanh{[\kappa(z-z_0)]}\right)\)</span></p>
 <dl class="attribute">
-<dt id="wme.theory.WeatheringMediatedErosion.x">
-<code class="descname">x</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.x" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>sympy.float</em> – abscissa <span class="math notranslate">\(x\)</span></p>
+<dt id="wme.theory.WeatheringMediatedErosion.z">
+<code class="descname">z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.z" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>sympy.float</em> – abscissa <span class="math notranslate">\(z\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.theory.WeatheringMediatedErosion.x0">
-<code class="descname">x0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – offset <span class="math notranslate">\(x_0\)</span></p>
+<dt id="wme.theory.WeatheringMediatedErosion.z0">
+<code class="descname">z0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.z0" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – offset <span class="math notranslate">\(z_0\)</span></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="wme.theory.WeatheringMediatedErosion.k">
-<code class="descname">k</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.k" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – step sharpness <span class="math notranslate">\(k\)</span></p>
+<dt id="wme.theory.WeatheringMediatedErosion.kappa">
+<code class="descname">kappa</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – step sharpness <span class="math notranslate">\(\kappa\)</span></p>
 </dd></dl>
 
 <table class="docutils field-list" frame="void" rules="none">
@@ -245,10 +246,11 @@
 <span class="sd">                erosion rate:</span>
 <span class="sd">                :math:`v_{0} = \\dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}`</span>
 <span class="sd">            v0_eqn_vr_h_z   (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                erosion rate: :math:`v_0 =  v_r \\left\{ (h-H_s[z,v_\\mathrm{smooth},v_\\mathrm{off}])(1-v_b)+v_b \\right\}`</span>
+<span class="sd">                erosion rate: </span>
+<span class="sd">                :math:`v_0 =  v_r \\left\{ (h-H_s[z,z_\\mathrm{vc},\\kappa_\\mathrm{v}])(1-v_b)+v_b \\right\}`</span>
 <span class="sd">            w0_eqn_wr_z     (:class:`sympy.Eq &lt;sympy.core.relational.Equality&gt;`) : </span>
-<span class="sd">                weakness:</span>
-<span class="sd">                :math:`w_0 =  w_r H_s[z,w_\\mathrm{smooth},w_\\mathrm{off}]`         </span>
+<span class="sd">                surface weakness:</span>
+<span class="sd">                :math:`w_0 =  w_r H_s[z,z_\\mathrm{wc},\\kappa_w]`         </span>
 <span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W_eqn</span>           <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">w_0</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">v_0</span><span class="p">))</span>
@@ -262,27 +264,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span>    <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nus_eqn_w0_v0</span><span class="o">.</span><span class="n">rhs</span><span class="o">*</span><span class="n">v_0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vs_w0</span>    <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vs_eqn_w0_v0</span><span class="p">,</span><span class="n">v_0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v0_eqn_vr_h_z</span>   <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">v_0</span><span class="p">,</span> 
-                                  <span class="n">v_r</span><span class="o">*</span><span class="p">(</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">v_smooth</span><span class="p">,</span><span class="n">v_off</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v_b</span><span class="p">)</span><span class="o">+</span><span class="n">v_b</span> <span class="p">)</span> 
+                                  <span class="n">v_r</span><span class="o">*</span><span class="p">(</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z_vc</span><span class="p">,</span><span class="n">kappa_v</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v_b</span><span class="p">)</span><span class="o">+</span><span class="n">v_b</span> <span class="p">)</span> 
                                   <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span>     <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">w_0</span><span class="p">,</span> <span class="n">w_r</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">w_smooth</span><span class="p">,</span><span class="n">w_off</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w0_eqn_wr_z</span>     <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">w_0</span><span class="p">,</span> <span class="n">w_r</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z_wc</span><span class="p">,</span><span class="n">kappa_w</span><span class="p">))</span>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">x0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z0</span><span class="p">,</span><span class="n">kappa</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Step function at x0= :math:`x_0` and sharpness k= :math:`k`.</span>
+<span class="sd">        Step function at x0= :math:`z_0` and sharpness k= :math:`k`.</span>
 <span class="sd">        </span>
-<span class="sd">        :math:`H_s = \\dfrac{1}{2}\\left(1 + \\tanh{[k(x-x_0)]}\\right)`</span>
+<span class="sd">        :math:`H_s(z,z_0,\\kappa) = \\dfrac{1}{2}\\left(1 + \\tanh{[\\kappa(z-z_0)]}\\right)`</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            x (sympy.float)  : abscissa :math:`x`        </span>
-<span class="sd">            x0 (float) : offset :math:`x_0`        </span>
-<span class="sd">            k (float)  : step sharpness :math:`k`   </span>
+<span class="sd">            z (sympy.float)  : abscissa :math:`z`        </span>
+<span class="sd">            z0 (float) : offset :math:`z_0`        </span>
+<span class="sd">            kappa (float)  : step sharpness :math:`\\kappa`   </span>
 <span class="sd">            </span>
 <span class="sd">        Returns:</span>
 <span class="sd">            float: step function :math:`H_s`               </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sy</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sy</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">z</span><span class="o">-</span><span class="n">z0</span><span class="p">)</span><span class="o">*</span><span class="n">kappa</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 
 
 
@@ -320,10 +322,8 @@
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
