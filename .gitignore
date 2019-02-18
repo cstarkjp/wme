@@ -46,6 +46,8 @@ desktop.ini
 ######################
 *.pyc
 *.pyo
+*-checkpoint.ipynb
+.ipynb_checkpoints
 
 # Generic backup #
 ######################
@@ -58,5 +60,9 @@ build/
 *.pyc
 *~
 \#*
-dist/
 *.so
+
+# Ignore big GeoTIFFs
+*.tif
+*.tiff
+
