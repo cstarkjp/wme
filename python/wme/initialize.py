@@ -61,6 +61,7 @@ except:
     pass
  
 try:
+#     get_ipython().magic('matplotlib notebook')
     get_ipython().magic('matplotlib inline')
 except NameError as error:
 #     print('Error trying to invoke get_ipython(), possibly because not running IPython:', 

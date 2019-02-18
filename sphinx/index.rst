@@ -7,7 +7,7 @@ Exploration of weathering-driven weakening on rock erosion.
 
 
 .. image:: images/nu_s.png 
-   :target: https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
+   :target: https://github.com/cstarkjp/wme/blob/master/experiments1d/Results1d
 
 The focus is on environments with no soil accumulation such as on 
 steep bedrock channel walls. 
@@ -52,12 +52,12 @@ Set up & execution
 .. only:: html 
 
 ..  _Python3 package: 
-      https://github.com/cstarknyc/wme/tree/master/python
+      https://github.com/cstarkjp/wme/tree/master/python
 .. _Jupyter (IPython) notebook: 
-      https://github.com/cstarknyc/wme/blob/master/experiments1d/wme1d.ipynb
-.. _code: https://github.com/cstarknyc/wme
-.. _wme: https://github.com/cstarknyc/wme
+      https://github.com/cstarkjp/wme/blob/master/experiments1d/wme1d.ipynb
+.. _code: https://github.com/cstarkjp/wme
+.. _wme: https://github.com/cstarkjp/wme
 .. _example results: 
-      https://github.com/cstarknyc/wme/blob/master/experiments1d/Results1d
+      https://github.com/cstarkjp/wme/blob/master/experiments1d/Results1d
 
 

@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'wme'
-copyright = '2018, CPS'
+copyright = '2019, CPS'
 author = 'CPS'
 
 # The version info for the project you're documenting, acts as replacement for

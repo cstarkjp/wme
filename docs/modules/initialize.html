@@ -9,11 +9,13 @@
     <title>initialize.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="symbols.py" href="symbols.html" />
@@ -121,6 +123,7 @@ continues regardless.</p>
     <span class="k">pass</span>
  
 <span class="k">try</span><span class="p">:</span>
+<span class="c1">#     get_ipython().magic(&#39;matplotlib notebook&#39;)</span>
     <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">magic</span><span class="p">(</span><span class="s1">&#39;matplotlib inline&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">NameError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
 <span class="c1">#     print(&#39;Error trying to invoke get_ipython(), possibly because not running IPython:&#39;, </span>
@@ -176,23 +179,11 @@ continues regardless.</p>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -212,11 +203,11 @@ continues regardless.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/initialize.rst.txt"

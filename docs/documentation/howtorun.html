@@ -9,11 +9,13 @@
     <title>How to run &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="initialize.py" href="../modules/initialize.html" />
@@ -39,8 +41,8 @@
 <h2>Interactive IPython/Jupyter notebook<a class="headerlink" href="#interactive-ipython-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>The recommended approach is to deploy <code class="xref py py-mod docutils literal notranslate"><span class="pre">wm_erosion</span></code>  in a Jupyter (browser)
 session and using a Jupyter/IPython notebook.</p>
-<p>Solution of the 1d problem is carried out in the <a class="reference external" href="https://github.com/cstarknyc/WeatheringMediatedErosion/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb">WeatheringMediatedErosion1d.ipynb</a>
-available on the <a class="reference external" href="https://github.com/cstarknyc/WeatheringMediatedErosion/tree/master/experiments1d">Github repo experiments section</a>.</p>
+<p>Solution of the 1d problem is carried out in the <a class="reference external" href="https://github.com/cstarkjp/WeatheringMediatedErosion/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb">WeatheringMediatedErosion1d.ipynb</a>
+available on the <a class="reference external" href="https://github.com/cstarkjp/WeatheringMediatedErosion/tree/master/experiments1d">Github repo experiments section</a>.</p>
 </div>
 <div class="section" id="in-a-ipython-jupyter-qtconsole-inline-graphics-interactive-or-non-interactive">
 <h2>In a IPython/Jupyter QtConsole (inline graphics): interactive or non-interactive<a class="headerlink" href="#in-a-ipython-jupyter-qtconsole-inline-graphics-interactive-or-non-interactive" title="Permalink to this headline">¶</a></h2>
@@ -104,23 +106,11 @@ a Jupyter console running IPython.</p>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to compute 1d solutions</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules/initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -140,11 +130,11 @@ a Jupyter console running IPython.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/documentation/howtorun.rst.txt"

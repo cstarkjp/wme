@@ -64,10 +64,10 @@ Graphical output will be pushed to a viewer external to the shell.
 
 
 .. _Github repo experiments section: 
-      https://github.com/cstarknyc/WeatheringMediatedErosion/tree/master/experiments1d
+      https://github.com/cstarkjp/WeatheringMediatedErosion/tree/master/experiments1d
 .. _WeatheringMediatedErosion1d.ipynb: 
-      https://github.com/cstarknyc/WeatheringMediatedErosion/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb
-.. _WeatheringMediatedErosion: https://github.com/cstarknyc/WeatheringMediatedErosion
+      https://github.com/cstarkjp/WeatheringMediatedErosion/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb
+.. _WeatheringMediatedErosion: https://github.com/cstarkjp/WeatheringMediatedErosion
 .. _QtConsole: https://ipython.org/ipython-doc/3/interactive/qtconsole.html
 .. _IPython: http://ipython.org/ipython-doc/3/interactive/
 

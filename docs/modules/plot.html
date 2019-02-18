@@ -9,11 +9,13 @@
     <title>plot.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="save.py" href="save.html" />
@@ -119,11 +121,11 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_eta_evolution">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_eta_evolution</code><span class="sig-paren">(</span><em>fig</em>, <em>ew</em>, <em>tc=40</em>, <em>nd=2</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_eta_evolution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot 1d evolution of weathering profile <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
+<dd><p>Plot 1d evolution of weathering profile <span class="math notranslate nohighlight">\(\eta(\chi,\tau)\)</span>
 undergoing erosion.</p>
-<p>Generate graph of selected solutions <span class="math notranslate">\(j\)</span>
+<p>Generate graph of selected solutions <span class="math notranslate nohighlight">\(j\)</span>
 of 1d weathering-mediated erosion model
-weakness <span class="math notranslate">\(\eta_i^j = \eta(\chi_i,\tau^j)\)</span>.
+weakness <span class="math notranslate nohighlight">\(\eta_i^j = \eta(\chi_i,\tau^j)\)</span>.
 This series of time slices
 shows the propagation and development of a steady-state form
 of the weathering depth-profile
@@ -135,8 +137,8 @@ as the rock surface is eroded. Quantities are all dimensionless.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
 <li><strong>ew</strong> (<a class="reference internal" href="solve1d.html#wme.solve1d.ErosionWeathering" title="wme.solve1d.ErosionWeathering"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeathering</span></code></a>) – instance of 1d weathering-mediated erosion model <a class="reference internal" href="solve1d.html#module-wme.solve1d" title="wme.solve1d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve1d</span></code></a> class</li>
-<li><strong>tc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – <span class="math notranslate">\(\tau^j\)</span>  slicing ‘rate’</li>
-<li><strong>nd</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of decimal places in <span class="math notranslate">\(\tau\)</span>  legend label</li>
+<li><strong>tc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – <span class="math notranslate nohighlight">\(\tau^j\)</span>  slicing ‘rate’</li>
+<li><strong>nd</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of decimal places in <span class="math notranslate nohighlight">\(\tau\)</span>  legend label</li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
 font size)</li>
 </ul>
@@ -149,12 +151,12 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_etas_steadystate">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_etas_steadystate</code><span class="sig-paren">(</span><em>fig</em>, <em>ew</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_etas_steadystate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot steady-state solution of weakness <span class="math notranslate">\(\eta_s\)</span>.</p>
+<dd><p>Plot steady-state solution of weakness <span class="math notranslate nohighlight">\(\eta_s\)</span>.</p>
 <p>Graph the numerical solution
 of the 1d weathering-mediated erosion model
-for weakness <span class="math notranslate">\(\eta_s(\chi_i | W)\)</span>
-as a function of depth from the rock surface <span class="math notranslate">\(\chi_i\)</span>
-for a given value of the weathering number <span class="math notranslate">\(W\)</span>.</p>
+for weakness <span class="math notranslate nohighlight">\(\eta_s(\chi_i | W)\)</span>
+as a function of depth from the rock surface <span class="math notranslate nohighlight">\(\chi_i\)</span>
+for a given value of the weathering number <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -176,12 +178,12 @@ for a given value of the weathering number <span class="math notranslate">\(W\)<
 <dl class="function">
 <dt id="wme.plot.plot_etas_steadystate_set">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_etas_steadystate_set</code><span class="sig-paren">(</span><em>fig</em>, <em>ew_list</em>, <em>chi_max=8</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_etas_steadystate_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot a set of steady-state solutions of weakness <span class="math notranslate">\(\eta_s\)</span>.</p>
+<dd><p>Plot a set of steady-state solutions of weakness <span class="math notranslate nohighlight">\(\eta_s\)</span>.</p>
 <p>Graph a set of numerical solution
 of the 1d weathering-mediated erosion model
-for weakness <span class="math notranslate">\(\eta_s(\chi_i | W)\)</span>
-as a function of depth from the rock surface <span class="math notranslate">\(\chi_i\)</span>
-for a set of weathering numbers <span class="math notranslate">\(W\)</span>.</p>
+for weakness <span class="math notranslate nohighlight">\(\eta_s(\chi_i | W)\)</span>
+as a function of depth from the rock surface <span class="math notranslate nohighlight">\(\chi_i\)</span>
+for a set of weathering numbers <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -204,13 +206,13 @@ for a set of weathering numbers <span class="math notranslate">\(W\)</span>.</p>
 <dl class="function">
 <dt id="wme.plot.plot_inoue_w_wetdryN">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_inoue_w_wetdryN</code><span class="sig-paren">(</span><em>fig</em>, <em>ed</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_inoue_w_wetdryN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot Inoue et al data on weakness <span class="math notranslate">\(w\)</span> versus
-proxy time <span class="math notranslate">\(N\)</span> (number of wet/dry cycles).</p>
-<p>Generate graph of rock weakness <span class="math notranslate">\(w\)</span> versus proxy time inferred from
+<dd><p>Plot Inoue et al data on weakness <span class="math notranslate nohighlight">\(w\)</span> versus
+proxy time <span class="math notranslate nohighlight">\(N\)</span> (number of wet/dry cycles).</p>
+<p>Generate graph of rock weakness <span class="math notranslate nohighlight">\(w\)</span> versus proxy time inferred from
 <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2017.02.018">Inoue et al (2017)</a>
-data on tensile strength <span class="math notranslate">\(\sigma_T\)</span>
-(normalized by a reference tensile strength <span class="math notranslate">\(\sigma_\mathrm{ref}\)</span>)
-after <span class="math notranslate">\(N\)</span> wetting and drying cycles.</p>
+data on tensile strength <span class="math notranslate nohighlight">\(\sigma_T\)</span>
+(normalized by a reference tensile strength <span class="math notranslate nohighlight">\(\sigma_\mathrm{ref}\)</span>)
+after <span class="math notranslate nohighlight">\(N\)</span> wetting and drying cycles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -231,10 +233,10 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_li_w_P">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_li_w_P</code><span class="sig-paren">(</span><em>fig</em>, <em>ed</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_li_w_P" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot Li et al  data on weakness <span class="math notranslate">\(w\)</span> versus proxy depth.</p>
-<p>Generate graph of rock weakness <span class="math notranslate">\(w\)</span> versus proxy depth
-inferred from  <a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a> data on compressive strength <span class="math notranslate">\(\sigma_C\)</span>
-at a range of confining pressures <span class="math notranslate">\(P\)</span> after <span class="math notranslate">\(N\)</span>
+<dd><p>Plot Li et al  data on weakness <span class="math notranslate nohighlight">\(w\)</span> versus proxy depth.</p>
+<p>Generate graph of rock weakness <span class="math notranslate nohighlight">\(w\)</span> versus proxy depth
+inferred from  <a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a> data on compressive strength <span class="math notranslate nohighlight">\(\sigma_C\)</span>
+at a range of confining pressures <span class="math notranslate nohighlight">\(P\)</span> after <span class="math notranslate nohighlight">\(N\)</span>
 wetting and drying cycles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -256,12 +258,12 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_li_w_surface_normed_P">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_li_w_surface_normed_P</code><span class="sig-paren">(</span><em>fig</em>, <em>ed</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_li_w_surface_normed_P" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot Li et al data on weakness <span class="math notranslate">\(w\)</span> (normalized using 2D model)
+<dd><p>Plot Li et al data on weakness <span class="math notranslate nohighlight">\(w\)</span> (normalized using 2D model)
 versus proxy depth.</p>
 <p>Generate graph of rock weakness versus proxy depth
 inferred from  <a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a>
-data on compressive strength <span class="math notranslate">\(\sigma_C\)</span>
-at a range of confining pressures <span class="math notranslate">\(P\)</span> after <span class="math notranslate">\(N\)</span> wetting and drying cycles.</p>
+data on compressive strength <span class="math notranslate nohighlight">\(\sigma_C\)</span>
+at a range of confining pressures <span class="math notranslate nohighlight">\(P\)</span> after <span class="math notranslate nohighlight">\(N\)</span> wetting and drying cycles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -282,14 +284,14 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_li_w_wetdryN">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_li_w_wetdryN</code><span class="sig-paren">(</span><em>fig</em>, <em>ed</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_li_w_wetdryN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot Li et al  data on weakness <span class="math notranslate">\(w\)</span> versus proxy time <span class="math notranslate">\(N\)</span>
+<dd><p>Plot Li et al  data on weakness <span class="math notranslate nohighlight">\(w\)</span> versus proxy time <span class="math notranslate nohighlight">\(N\)</span>
 (number of wet/dry cycles).</p>
-<p>Generate graph of rock weakness <span class="math notranslate">\(w\)</span> versus proxy time <span class="math notranslate">\(N\)</span>
+<p>Generate graph of rock weakness <span class="math notranslate nohighlight">\(w\)</span> versus proxy time <span class="math notranslate nohighlight">\(N\)</span>
 inferred from  <a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a>
-data on compressive strength <span class="math notranslate">\(\sigma_C\)</span>
-(normalized by a reference compressive strength <span class="math notranslate">\(\sigma_\mathrm{ref}\)</span>)
-after <span class="math notranslate">\(N\)</span> wetting and drying cycles
-at a range of confining pressures <span class="math notranslate">\(P\)</span>.</p>
+data on compressive strength <span class="math notranslate nohighlight">\(\sigma_C\)</span>
+(normalized by a reference compressive strength <span class="math notranslate nohighlight">\(\sigma_\mathrm{ref}\)</span>)
+after <span class="math notranslate nohighlight">\(N\)</span> wetting and drying cycles
+at a range of confining pressures <span class="math notranslate nohighlight">\(P\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -313,8 +315,8 @@ font size)</li>
 <dd><p>Plot Li et al data in 3D on weakness versus proxy depth and confining pressure.</p>
 <p>Generate 3D view of 2D surface model &amp; data
 of rock weakness versus proxy depth inferred from
-<a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a> data on compressive strength <span class="math notranslate">\(\sigma_C\)</span>
-at a range of confining pressures <span class="math notranslate">\(P\)</span> after <span class="math notranslate">\(N\)</span> wetting and drying cycles.</p>
+<a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a> data on compressive strength <span class="math notranslate nohighlight">\(\sigma_C\)</span>
+at a range of confining pressures <span class="math notranslate nohighlight">\(P\)</span> after <span class="math notranslate nohighlight">\(N\)</span> wetting and drying cycles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -339,9 +341,9 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_nu_evolution">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_nu_evolution</code><span class="sig-paren">(</span><em>fig</em>, <em>ew</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_nu_evolution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot time-evolution of dimensionless erosion rate <span class="math notranslate">\(\nu(\tau)\)</span>.</p>
-<p>Generate graph of numerical solutions <span class="math notranslate">\(j\)</span>  of dimensionless rock-surface erosion
-rate <span class="math notranslate">\(\nu_i^j\)</span> over dimensionless time <span class="math notranslate">\(\tau^j\)</span>.
+<dd><p>Plot time-evolution of dimensionless erosion rate <span class="math notranslate nohighlight">\(\nu(\tau)\)</span>.</p>
+<p>Generate graph of numerical solutions <span class="math notranslate nohighlight">\(j\)</span>  of dimensionless rock-surface erosion
+rate <span class="math notranslate nohighlight">\(\nu_i^j\)</span> over dimensionless time <span class="math notranslate nohighlight">\(\tau^j\)</span>.
 These solutions are provided in the
 class instance <a class="reference internal" href="solve1d.html#wme.solve1d.ErosionWeathering" title="wme.solve1d.ErosionWeathering"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErosionWeathering</span></code></a>.
 Legend-label by weathering number for this instance.</p>
@@ -362,13 +364,13 @@ Legend-label by weathering number for this instance.</p>
 <dl class="function">
 <dt id="wme.plot.plot_nus_W">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_nus_W</code><span class="sig-paren">(</span><em>fig</em>, <em>em</em>, <em>do_loglog=True</em>, <em>nus_solns_list=None</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_nus_W" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot the 1d model steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span>
-versus weathering number <span class="math notranslate">\(W\)</span>.</p>
+<dd><p>Plot the 1d model steady-state erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span>
+versus weathering number <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <p>Graph the functional dependence of dimensionless steady-state
-erosion rate <span class="math notranslate">\(\nu_s\)</span> as a function of versus weathering number <span class="math notranslate">\(W\)</span>
+erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span> as a function of versus weathering number <span class="math notranslate nohighlight">\(W\)</span>
 for the 1d weathering-mediated erosion model.
 The analytical solution is plotted as a black curve; numerical solutions are
-plotted as black circles; asymptotic behavior for low and high <span class="math notranslate">\(W\)</span>
+plotted as black circles; asymptotic behavior for low and high <span class="math notranslate nohighlight">\(W\)</span>
 are shown as dashed lines. Explanatory annotations are included.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -378,7 +380,7 @@ are shown as dashed lines. Explanatory annotations are included.</p>
 <li><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.0.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Matplotlib</span> <span class="pre">figure</span></code></a>) – reference to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.0.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MatPlotLib/Pyplot</span></code></a> figure</li>
 <li><strong>em</strong> (<a class="reference internal" href="theory.html#wme.theory.WeatheringMediatedErosion" title="wme.theory.WeatheringMediatedErosion"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeatheringMediatedErosion</span></code></a>) – instance of 1d weathering-mediated erosion theory <a class="reference internal" href="theory.html#module-wme.theory" title="wme.theory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theory</span></code></a> class</li>
 <li><strong>do_loglog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – flag whether to use log scales on both axes</li>
-<li><strong>nus_solns_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – set of numerical solutions of <span class="math notranslate">\(\nu_s\)</span></li>
+<li><strong>nus_solns_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – set of numerical solutions of <span class="math notranslate nohighlight">\(\nu_s\)</span></li>
 <li><strong>text_label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – text annotation as list of form (x-y coordinate, string,
 font size)</li>
 </ul>
@@ -391,10 +393,10 @@ font size)</li>
 <dl class="function">
 <dt id="wme.plot.plot_nus_W_transition">
 <code class="descclassname">wme.plot.</code><code class="descname">plot_nus_W_transition</code><span class="sig-paren">(</span><em>fig</em>, <em>em</em>, <em>text_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.plot.plot_nus_W_transition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot the steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span> relative to its asymptotic behavior.</p>
-<p>Visualize the transitional behavior of the steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span>
-at intermediate weathering numbers <span class="math notranslate">\(W\)</span> by plotting how asymptotes at
-low and high <span class="math notranslate">\(W\)</span> deviate from the full model.</p>
+<dd><p>Plot the steady-state erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span> relative to its asymptotic behavior.</p>
+<p>Visualize the transitional behavior of the steady-state erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span>
+at intermediate weathering numbers <span class="math notranslate nohighlight">\(W\)</span> by plotting how asymptotes at
+low and high <span class="math notranslate nohighlight">\(W\)</span> deviate from the full model.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -463,9 +465,9 @@ the erosion front speed over time.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tau</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – time slices <span class="math notranslate">\(\tau^j\)</span> of numerical solution</li>
-<li><strong>nu</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – speed of erosion front <span class="math notranslate">\(\nu^j\)</span>
-at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
+<li><strong>tau</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – time slices <span class="math notranslate nohighlight">\(\tau^j\)</span> of numerical solution</li>
+<li><strong>nu</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – speed of erosion front <span class="math notranslate nohighlight">\(\nu^j\)</span>
+at each time slice <span class="math notranslate nohighlight">\(\tau^j\)</span></li>
 </ul>
 </td>
 </tr>
@@ -1428,23 +1430,11 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -1464,11 +1454,11 @@ at each time slice <span class="math notranslate">\(\tau^j\)</span></li>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/plot.rst.txt"

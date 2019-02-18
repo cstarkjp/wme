@@ -9,11 +9,13 @@
     <title>theory.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="solve1d.py" href="solve1d.html" />
@@ -58,117 +60,237 @@
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.W_eqn">
 <code class="descname">W_eqn</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.W_eqn" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering number:
-<span class="math notranslate">\(W = \dfrac{w_0}{k v_0}\)</span></p>
+<dd><p>weathering number:
+<span class="math notranslate nohighlight">\(W = \dfrac{w_0}{k v_0}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_W">
 <code class="descname">nus_eqn_W</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_W" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
-<span class="math notranslate">\(\nu_s = \dfrac{1}{2}(1+\sqrt{1+4W})\)</span></p>
+<dd><p>dimensionless steady-state erosion rate:
+<span class="math notranslate nohighlight">\(\nu_s = \dfrac{1}{2}(1+\sqrt{1+4W})\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_w0_v0">
 <code class="descname">nus_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
-<span class="math notranslate">\(\nu_s = \frac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+<dd><p>dimensionless steady-state erosion rate:
+<span class="math notranslate nohighlight">\(\nu_s = \frac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.etas0_eqn_W">
 <code class="descname">etas0_eqn_W</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.etas0_eqn_W" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state surface weakness:
-<span class="math notranslate">\(\eta_{s0} = \dfrac{\sqrt{4 W + 1}}{2} + \frac{1}{2}\)</span></p>
+<dd><p>steady-state surface weakness:
+<span class="math notranslate nohighlight">\(\eta_{s0} = \dfrac{\sqrt{4 W + 1}}{2} + \frac{1}{2}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.etas0_eqn_w0_v0">
 <code class="descname">etas0_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.etas0_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state surface weakness:
-<span class="math notranslate">\(\eta_{s0} = \dfrac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+<dd><p>steady-state surface weakness:
+<span class="math notranslate nohighlight">\(\eta_{s0} = \dfrac{\sqrt{1 + \frac{4 w_{0}}{k v_{0}}}}{2} + \frac{1}{2}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.nus_eqn_etas0">
 <code class="descname">nus_eqn_etas0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.nus_eqn_etas0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – dimensionless steady-state erosion rate:
-<span class="math notranslate">\(\nu_s =  \eta_{s}(0)\)</span></p>
+<dd><p>dimensionless steady-state erosion rate:
+<span class="math notranslate nohighlight">\(\nu_s =  \eta_{s}(0)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.vs_eqn_etas0_v0">
 <code class="descname">vs_eqn_etas0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.vs_eqn_etas0_v0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state erosion rate:
-<span class="math notranslate">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+<dd><p>steady-state erosion rate:
+<span class="math notranslate nohighlight">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_etas0_vs">
 <code class="descname">v0_eqn_etas0_vs</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_etas0_vs" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
-<span class="math notranslate">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+<dd><p>erosion rate:
+<span class="math notranslate nohighlight">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.vs_eqn_w0_v0">
 <code class="descname">vs_eqn_w0_v0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.vs_eqn_w0_v0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – steady-state erosion rate:
-<span class="math notranslate">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+<dd><p>steady-state erosion rate:
+<span class="math notranslate nohighlight">\(v_{s} = \eta_{s}(0) v_{0}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_vs_w0">
 <code class="descname">v0_eqn_vs_w0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_vs_w0" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
-<span class="math notranslate">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+<dd><p>erosion rate:
+<span class="math notranslate nohighlight">\(v_{0} = \dfrac{k v_{s}^{2}}{k v_{s} + w_{0}}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z">
 <code class="descname">v0_eqn_vr_h_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.v0_eqn_vr_h_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate:
-<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},\kappa_\mathrm{v}])(1-v_b)+v_b \right\}\)</span></p>
+<dd><p>erosion rate:
+<span class="math notranslate nohighlight">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},\kappa_\mathrm{v}])(1-v_b)+v_b \right\}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z">
 <code class="descname">w0_eqn_wr_z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.w0_eqn_wr_z" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface weakness:
-<span class="math notranslate">\(w_0 =  w_r H_s[z,z_\mathrm{wc},\kappa_w]\)</span></p>
+<dd><p>surface weakness:
+<span class="math notranslate nohighlight">\(w_0 =  w_r H_s[z,z_\mathrm{wc},\kappa_w]\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="wme.theory.WeatheringMediatedErosion.step">
-<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>z0</em>, <em>kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Step function at x0= <span class="math notranslate">\(z_0\)</span> and sharpness k= <span class="math notranslate">\(k\)</span>.</p>
-<p><span class="math notranslate">\(H_s(z,z_0,\kappa) = \dfrac{1}{2}\left(1 + \tanh{[\kappa(z-z_0)]}\right)\)</span></p>
+<em class="property">static </em><code class="descname">step</code><span class="sig-paren">(</span><em>z</em>, <em>z0</em>, <em>kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Step function at x0= <span class="math notranslate nohighlight">\(z_0\)</span> and sharpness k= <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(H_s(z,z_0,\kappa) = \dfrac{1}{2}\left(1 + \tanh{[\kappa(z-z_0)]}\right)\)</span></p>
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.z">
 <code class="descname">z</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.z" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>sympy.float</em> – abscissa <span class="math notranslate">\(z\)</span></p>
+<dd><p>abscissa <span class="math notranslate nohighlight">\(z\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy.float</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.z0">
 <code class="descname">z0</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.z0" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – offset <span class="math notranslate">\(z_0\)</span></p>
+<dd><p>offset <span class="math notranslate nohighlight">\(z_0\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.theory.WeatheringMediatedErosion.kappa">
 <code class="descname">kappa</code><a class="headerlink" href="#wme.theory.WeatheringMediatedErosion.kappa" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>float</em> – step sharpness <span class="math notranslate">\(\kappa\)</span></p>
+<dd><p>step sharpness <span class="math notranslate nohighlight">\(\kappa\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">step function <span class="math notranslate">\(H_s\)</span></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">step function <span class="math notranslate nohighlight">\(H_s\)</span></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
 </tr>
@@ -319,21 +441,11 @@
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -353,11 +465,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/theory.rst.txt"

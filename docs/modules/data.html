@@ -9,11 +9,13 @@
     <title>data.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="theory.py" href="theory.html" />
@@ -59,24 +61,48 @@
 <dl class="attribute">
 <dt id="wme.data.ExptData.ddict">
 <code class="descname">ddict</code><a class="headerlink" href="#wme.data.ExptData.ddict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – data dictionary, to contain experimental results of
+<dd><p>data dictionary, to contain experimental results of
 <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2017.02.018">Inoue et al (2017)</a> and <a class="reference external" href="https://doi.org/10.25103/jestr.093.10">Li et al (2016)</a> variously on
 rock tensile strength, rock compressive strength,
 erodibility, number of wetting/drying cycles, and confining pressure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.fdict">
 <code class="descname">fdict</code><a class="headerlink" href="#wme.data.ExptData.fdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – 1d model dictionary, to contain regression fits of
+<dd><p>1d model dictionary, to contain regression fits of
 weathering model(s) to experimental data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.sdict">
 <code class="descname">sdict</code><a class="headerlink" href="#wme.data.ExptData.sdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – 2d model dictionary, to contain regression fits of
+<dd><p>2d model dictionary, to contain regression fits of
 2d weathering model to experimental data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -95,8 +121,8 @@ as a linear function of the number of wetting and drying cycles.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>data_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – which experimental dataset,
 as key to ddict element <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.23.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></li>
-<li><strong>x_name</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – abscissa <span class="math notranslate">\(x\)</span></li>
-<li><strong>y_name</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – ordinate <span class="math notranslate">\(y\)</span></li>
+<li><strong>x_name</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – abscissa <span class="math notranslate nohighlight">\(x\)</span></li>
+<li><strong>y_name</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – ordinate <span class="math notranslate nohighlight">\(y\)</span></li>
 <li><strong>select</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – which computation of weakness from rock strength</li>
 </ul>
 </td>
@@ -106,19 +132,43 @@ as key to ddict element <a class="reference external" href="http://pandas.pydata
 <dl class="attribute">
 <dt>
 <code class="descname">fdict[data_set] or fdict[selection_name]</code></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> element – model fit</p>
+<dd><p>model fit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> element</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.w_s2_means">
 <code class="descname">w_s2_means</code><a class="headerlink" href="#wme.data.ExptData.w_s2_means" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – mean values of weakness <span class="math notranslate">\(w\)</span></p>
+<dd><p>mean values of weakness <span class="math notranslate nohighlight">\(w\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.w_s2_stds">
 <code class="descname">w_s2_stds</code><a class="headerlink" href="#wme.data.ExptData.w_s2_stds" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – standard deviations of weakness <span class="math notranslate">\(w\)</span></p>
+<dd><p>standard deviations of weakness <span class="math notranslate nohighlight">\(w\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -143,29 +193,61 @@ as key to ddict element <a class="reference external" href="http://pandas.pydata
 <dl class="attribute">
 <dt>
 <code class="descname">fdict[data_set]</code></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> – model surface fit as
-meshgrid X=wet/dry <span class="math notranslate">\(N\)</span>, Y=confining pressure <span class="math notranslate">\(P\)</span>
+<dd><p>model surface fit as
+meshgrid X=wet/dry <span class="math notranslate nohighlight">\(N\)</span>, Y=confining pressure <span class="math notranslate nohighlight">\(P\)</span>
 and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
 <code class="descname">sdict[data_set]</code></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> – model surface estimates at experimental values as
-meshgrid X=wet/dry <span class="math notranslate">\(N\)</span>, Y=confining pressure <span class="math notranslate">\(P\)</span>
+<dd><p>model surface estimates at experimental values as
+meshgrid X=wet/dry <span class="math notranslate nohighlight">\(N\)</span>, Y=confining pressure <span class="math notranslate nohighlight">\(P\)</span>
 and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.w_s2normed_means">
 <code class="descname">w_s2normed_means</code><a class="headerlink" href="#wme.data.ExptData.w_s2normed_means" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – mean values of model-normed weakness <span class="math notranslate">\(w\)</span></p>
+<dd><p>mean values of model-normed weakness <span class="math notranslate nohighlight">\(w\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.w_s2normed_stds">
 <code class="descname">w_s2normed_stds</code><a class="headerlink" href="#wme.data.ExptData.w_s2normed_stds" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – standard deviations of <span class="math notranslate">\(w\)</span></p>
+<dd><p>standard deviations of <span class="math notranslate nohighlight">\(w\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -177,31 +259,71 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 <dl class="attribute">
 <dt id="wme.data.ExptData.data_set">
 <code class="descname">data_set</code><a class="headerlink" href="#wme.data.ExptData.data_set" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> – name of dataset in data dictionary</p>
+<dd><p>name of dataset in data dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.dir_name">
 <code class="descname">dir_name</code><a class="headerlink" href="#wme.data.ExptData.dir_name" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> – data source directory as platform-indepedent list</p>
+<dd><p>data source directory as platform-indepedent list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.file_name">
 <code class="descname">file_name</code><a class="headerlink" href="#wme.data.ExptData.file_name" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> – name of dataset in data dictionary</p>
+<dd><p>data source filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.header">
 <code class="descname">header</code><a class="headerlink" href="#wme.data.ExptData.header" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of header (column title etc) rows</p>
+<dd><p>number of header (column title etc) rows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.data.ExptData.skiprows">
 <code class="descname">skiprows</code><a class="headerlink" href="#wme.data.ExptData.skiprows" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of rows to skip when creating dataframe</p>
+<dd><p>number of rows to skip when creating dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -211,7 +333,7 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 <dl class="function">
 <dt id="wme.data.exponential_decay_model">
 <code class="descclassname">wme.data.</code><code class="descname">exponential_decay_model</code><span class="sig-paren">(</span><em>x</em>, <em>m</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.data.exponential_decay_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shifted exponential decay model of form: <span class="math notranslate">\(y = 1 + c \exp(-x/m)\)</span></p>
+<dd><p>Shifted exponential decay model of form: <span class="math notranslate nohighlight">\(y = 1 + c \exp(-x/m)\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -236,7 +358,7 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 <dl class="function">
 <dt id="wme.data.linear_model">
 <code class="descclassname">wme.data.</code><code class="descname">linear_model</code><span class="sig-paren">(</span><em>x</em>, <em>m</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.data.linear_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Simple linear model of form: <span class="math notranslate">\(y = m x + c\)</span></p>
+<dd><p>Simple linear model of form: <span class="math notranslate nohighlight">\(y = m x + c\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -263,17 +385,17 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 <code class="descclassname">wme.data.</code><code class="descname">weathering_model</code><span class="sig-paren">(</span><em>wetdryN_P</em>, <em>k</em>, <em>w0</em>, <em>tau0</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.data.weathering_model" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Shifted exponential decay weathering model:</dt>
-<dd><span class="math notranslate">\(w = 1 + w_0(\tau+\tau_0)\exp(-k\chi)\)</span></dd>
+<dd><span class="math notranslate nohighlight">\(w = 1 + w_0(\tau+\tau_0)\exp(-k\chi)\)</span></dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>wetdryN_P</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – pair <span class="math notranslate">\((\tau,\chi)\)</span></li>
-<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – reciprocal e-folding scale <span class="math notranslate">\(k\)</span></li>
-<li><strong>w0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – magnitude <span class="math notranslate">\(w_0\)</span></li>
-<li><strong>tau0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – time offset <span class="math notranslate">\(\tau_0\)</span></li>
+<li><strong>wetdryN_P</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><em>numpy.ndarray</em></a>) – pair <span class="math notranslate nohighlight">\((\tau,\chi)\)</span></li>
+<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – reciprocal e-folding scale <span class="math notranslate nohighlight">\(k\)</span></li>
+<li><strong>w0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – magnitude <span class="math notranslate nohighlight">\(w_0\)</span></li>
+<li><strong>tau0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – time offset <span class="math notranslate nohighlight">\(\tau_0\)</span></li>
 </ul>
 </td>
 </tr>
@@ -390,7 +512,7 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 <span class="sd">        Attributes:</span>
 <span class="sd">            data_set  (:obj:`str`)  : name of dataset in data dictionary</span>
 <span class="sd">            dir_name  (:obj:`list`) : data source directory as platform-indepedent list</span>
-<span class="sd">            file_name (:obj:`str`)  : name of dataset in data dictionary</span>
+<span class="sd">            file_name (:obj:`str`)  : data source filename</span>
 <span class="sd">            header    (:obj:`int`)  : number of header (column title etc) rows</span>
 <span class="sd">            skiprows  (:obj:`int`)  : number of rows to skip when creating dataframe</span>
 <span class="sd">    </span>
@@ -537,23 +659,11 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -573,11 +683,11 @@ and corresponding surface Z[X,Y] as list (X,Y,Z)</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/data.rst.txt"

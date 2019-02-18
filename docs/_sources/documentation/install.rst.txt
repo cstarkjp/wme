@@ -1,17 +1,17 @@
 Installation
 ============
 
- .. _repository: https://github.com/cstarknyc/WeatheringMediatedErosion
+ .. _repository: https://github.com/cstarkjp/WeatheringMediatedErosion
  .. _python package: 
-       https://github.com/cstarknyc/WeatheringMediatedErosion/tree/master/python
+       https://github.com/cstarkjp/WeatheringMediatedErosion/tree/master/python
  .. _modules: 
-       https://github.com/cstarknyc/WeatheringMediatedErosion/tree/master/python/wm_erosion
+       https://github.com/cstarkjp/WeatheringMediatedErosion/tree/master/python/wm_erosion
 
 First, Git clone the `repository`_:
 
 .. code-block:: none
 	
-		git clone https://github.com/cstarknyc/WeatheringMediatedErosion.git
+		git clone https://github.com/cstarkjp/WeatheringMediatedErosion.git
 
 Then append the location of 	the `python package`_  to your PYTHONPATH environmental 
 variable. For Linux/MacOSX users, mod your .bashrc something like this:

@@ -9,11 +9,13 @@
     <title>solve1d.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="solve1p1d.py" href="solve1p1d.html" />
@@ -53,13 +55,13 @@ resolution. Upwind differencing and explicit Euler methods are employed.</p>
 <dl class="class">
 <dt id="wme.solve1d.ErosionWeathering">
 <em class="property">class </em><code class="descclassname">wme.solve1d.</code><code class="descname">ErosionWeathering</code><span class="sig-paren">(</span><em>pdict</em>, <em>ndict</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerical solution of <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
-and <span class="math notranslate">\(\varphi(\tau)\)</span> evolution</p>
+<dd><p>Numerical solution of <span class="math notranslate nohighlight">\(\eta(\chi,\tau)\)</span>
+and <span class="math notranslate nohighlight">\(\varphi(\tau)\)</span> evolution</p>
 <p>Class that provides a finite-difference method for solving the
-<span class="math notranslate">\((chi,tau)\)</span> evolution
-of a weakness profile <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
-and its eroding surface position <span class="math notranslate">\(\varphi(\tau)\)</span>
-as 2d array <span class="math notranslate">\(\eta_i^j\)</span> and 1d vector <span class="math notranslate">\(\varphi^j\)</span> respectively.
+<span class="math notranslate nohighlight">\((chi,tau)\)</span> evolution
+of a weakness profile <span class="math notranslate nohighlight">\(\eta(\chi,\tau)\)</span>
+and its eroding surface position <span class="math notranslate nohighlight">\(\varphi(\tau)\)</span>
+as 2d array <span class="math notranslate nohighlight">\(\eta_i^j\)</span> and 1d vector <span class="math notranslate nohighlight">\(\varphi^j\)</span> respectively.
 and that provides dictionaries for the model and its numerical solution
 parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -81,107 +83,243 @@ parameters.</p>
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.pdict">
 <code class="descname">pdict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.pdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary, extended during &amp; after instantiation</p>
+<dd><p>model parameters dictionary, extended during &amp; after instantiation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.ndict">
 <code class="descname">ndict</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.ndict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – numerical method parameters dictionary</p>
+<dd><p>numerical method parameters dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.chi_domain_size">
 <code class="descname">chi_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_domain_size" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – length of chi solution domain (extracted from ndict)</p>
+<dd><p>length of chi solution domain (extracted from ndict)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.Delta_chi">
 <code class="descname">Delta_chi</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_chi" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – spacing between discrete chi solution points (extracted from ndict)</p>
+<dd><p>spacing between discrete chi solution points (extracted from ndict)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.n_chi_domain">
 <code class="descname">n_chi_domain</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.n_chi_domain" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of solution points in distance chi (extracted from ndict)</p>
+<dd><p>number of solution points in distance chi (extracted from ndict)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_domain_size">
 <code class="descname">tau_domain_size</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_domain_size" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – maximum duration of solution (truncated if/when front
+<dd><p>maximum duration of solution (truncated if/when front
 exits chi domain) (extracted from ndict)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_n_steps">
 <code class="descname">tau_n_steps</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_n_steps" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – number of solution points in time tau</p>
+<dd><p>number of solution points in time tau</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.Delta_tau">
 <code class="descname">Delta_tau</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.Delta_tau" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – spacing between discrete tau solution points</p>
+<dd><p>spacing between discrete tau solution points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.chi_array">
 <code class="descname">chi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.chi_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete distances <span class="math notranslate">\(\chi_i\)</span></p>
+<dd><p>discrete distances <span class="math notranslate nohighlight">\(\chi_i\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.tau_array">
 <code class="descname">tau_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.tau_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete times <span class="math notranslate">\(\tau^j\)</span></p>
+<dd><p>discrete times <span class="math notranslate nohighlight">\(\tau^j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.eta_array">
 <code class="descname">eta_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.eta_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discretized weakness profile <span class="math notranslate">\(\eta_i^j\)</span></p>
+<dd><p>discretized weakness profile <span class="math notranslate nohighlight">\(\eta_i^j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.phi_array">
 <code class="descname">phi_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.phi_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of erosion front
-positions <span class="math notranslate">\(\phi^j\)</span> (smoothly resolved as floats)</p>
+<dd><p>discrete (in time) series of erosion front
+positions <span class="math notranslate nohighlight">\(\phi^j\)</span> (smoothly resolved as floats)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.nu_array">
 <code class="descname">nu_array</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of
-dimensionless erosion rates <span class="math notranslate">\(\nu^j\)</span></p>
+<dd><p>discrete (in time) series of
+dimensionless erosion rates <span class="math notranslate nohighlight">\(\nu^j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.j">
 <code class="descname">j</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.j" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – final time step index <span class="math notranslate">\(j\)</span></p>
+<dd><p>final time step index <span class="math notranslate nohighlight">\(j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.W">
 <code class="descname">W</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.W" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – weathering number <span class="math notranslate">\(W\)</span></p>
+<dd><p>weathering number <span class="math notranslate nohighlight">\(W\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.nu_s">
 <code class="descname">nu_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – predicted (by analytical solution) dimensionless
-steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span></p>
+<dd><p>predicted (by analytical solution) dimensionless
+steady-state erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.v_s">
 <code class="descname">v_s</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.v_s" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> – predicted (by analytical solution) steady-state erosion rate <span class="math notranslate">\(v_s\)</span></p>
+<dd><p>predicted (by analytical solution) steady-state erosion rate <span class="math notranslate nohighlight">\(v_s\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -190,36 +328,67 @@ steady-state erosion rate <span class="math notranslate">\(\nu_s\)</span></p>
 <dt id="wme.solve1d.ErosionWeathering.solve">
 <code class="descname">solve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.ErosionWeathering.solve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use an explicit finite-difference scheme to solve for evolution of
-a weakness profile <span class="math notranslate">\(\eta_i^j\)</span>
-and its eroding surface position <span class="math notranslate">\(\phi^j\)</span>.</p>
+a weakness profile <span class="math notranslate nohighlight">\(\eta_i^j\)</span>
+and its eroding surface position <span class="math notranslate nohighlight">\(\phi^j\)</span>.</p>
 <dl class="attribute">
 <dt>
 <code class="descname">pdict</code></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary, extended during &amp; after instantiation</p>
+<dd><p>model parameters dictionary, extended during &amp; after instantiation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
 <code class="descname">nu_array</code></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – discrete (in time) series of
-dimensionless erosion rates <span class="math notranslate">\(\nu^j\)</span></p>
+<dd><p>discrete (in time) series of
+dimensionless erosion rates <span class="math notranslate nohighlight">\(\nu^j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
 <code class="descname">j</code></dt>
-<dd><p><em>int</em> – final time step index <span class="math notranslate">\(j\)</span></p>
+<dd><p>final time step index <span class="math notranslate nohighlight">\(j\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1d.ErosionWeathering.nu_s_bar">
 <code class="descname">nu_s_bar</code><a class="headerlink" href="#wme.solve1d.ErosionWeathering.nu_s_bar" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> –</p>
-<dl class="docutils">
+<dd><dl class="docutils">
 <dt>post-hoc estimate (from averaging portion of solutions) of</dt>
 <dd>dimensionless steady-state erosion rate
-<span class="math notranslate">\(\overline{\nu}_s\)</span></dd>
+<span class="math notranslate nohighlight">\(\overline{\nu}_s\)</span></dd>
 </dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -230,22 +399,22 @@ dimensionless erosion rates <span class="math notranslate">\(\nu^j\)</span></p>
 <dt id="wme.solve1d.eta_chi_tau">
 <code class="descclassname">wme.solve1d.</code><code class="descname">eta_chi_tau</code><span class="sig-paren">(</span><em>chi</em>, <em>tau</em>, <em>W</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.eta_chi_tau" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weathering-driven weakness function.</p>
-<p>Analytic solution for <span class="math notranslate">\(\eta(\chi,\tau)\)</span>
+<p>Analytic solution for <span class="math notranslate nohighlight">\(\eta(\chi,\tau)\)</span>
 as a function of dimensionless distance
-(depth into the rock) <span class="math notranslate">\(\chi\)</span> and time <span class="math notranslate">\(\tau\)</span>, and parameterized
-by weathering number <span class="math notranslate">\(W\)</span>, assuming an exponential-decay model for weathering.</p>
+(depth into the rock) <span class="math notranslate nohighlight">\(\chi\)</span> and time <span class="math notranslate nohighlight">\(\tau\)</span>, and parameterized
+by weathering number <span class="math notranslate nohighlight">\(W\)</span>, assuming an exponential-decay model for weathering.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless time <span class="math notranslate">\(\tau\)</span></li>
-<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless distance <span class="math notranslate">\(\chi\)</span></li>
-<li><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate">\(W\)</span></li>
+<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless time <span class="math notranslate nohighlight">\(\tau\)</span></li>
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – dimensionless distance <span class="math notranslate nohighlight">\(\chi\)</span></li>
+<li><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate nohighlight">\(W\)</span></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">weakness <span class="math notranslate">\(\eta(\chi,\tau;W)\)</span></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">weakness <span class="math notranslate nohighlight">\(\eta(\chi,\tau;W)\)</span></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
@@ -259,28 +428,28 @@ by weathering number <span class="math notranslate">\(W\)</span>, assuming an ex
 <dt id="wme.solve1d.negExpH">
 <code class="descclassname">wme.solve1d.</code><code class="descname">negExpH</code><span class="sig-paren">(</span><em>chi</em>, <em>dchi</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.negExpH" title="Permalink to this definition">¶</a></dt>
 <dd><p>Negate, exponentiate and Heaviside clip.</p>
-<p>Assumes the argument chi= <span class="math notranslate">\(\chi\)</span>
+<p>Assumes the argument chi= <span class="math notranslate nohighlight">\(\chi\)</span>
 is the dimensionless distance from the erosion front,
-and dchi= <span class="math notranslate">\(\Delta\chi\)</span>  is the discrete spatial step size.
-Exponentiates <span class="math notranslate">\(-\chi H(\chi+\Delta\chi)\)</span> where H=Heaviside function.
-When invoked in computing <span class="math notranslate">\(d{\eta}/d{\chi}\)</span>,
-adding <span class="math notranslate">\(\Delta\chi\)</span> means a non-clipped
-value is returned for the sample point just to the left (-ve <span class="math notranslate">\(\chi\)</span>).
-Thus the <span class="math notranslate">\(\eta\)</span> gradient is estimated across the erosion front,
+and dchi= <span class="math notranslate nohighlight">\(\Delta\chi\)</span>  is the discrete spatial step size.
+Exponentiates <span class="math notranslate nohighlight">\(-\chi H(\chi+\Delta\chi)\)</span> where H=Heaviside function.
+When invoked in computing <span class="math notranslate nohighlight">\(d{\eta}/d{\chi}\)</span>,
+adding <span class="math notranslate nohighlight">\(\Delta\chi\)</span> means a non-clipped
+value is returned for the sample point just to the left (-ve <span class="math notranslate nohighlight">\(\chi\)</span>).
+Thus the <span class="math notranslate nohighlight">\(\eta\)</span> gradient is estimated across the erosion front,
 where sample points
-span the moving origin, as well as for all points <span class="math notranslate">\(\chi\geq 0\)</span>.</p>
+span the moving origin, as well as for all points <span class="math notranslate nohighlight">\(\chi\geq 0\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – distance <span class="math notranslate">\(\chi\)</span> from the erosion front</li>
-<li><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – discrete spacing <span class="math notranslate">\(\Delta\chi\)</span>
-between sample points along <span class="math notranslate">\(\chi\)</span></li>
+<li><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – distance <span class="math notranslate nohighlight">\(\chi\)</span> from the erosion front</li>
+<li><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – discrete spacing <span class="math notranslate nohighlight">\(\Delta\chi\)</span>
+between sample points along <span class="math notranslate nohighlight">\(\chi\)</span></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><span class="math notranslate">\(\exp(-\chi)\)</span> if <span class="math notranslate">\(\chi+\Delta\chi \geq 0\)</span>, 1 otherwise</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><span class="math notranslate nohighlight">\(\exp(-\chi)\)</span> if <span class="math notranslate nohighlight">\(\chi+\Delta\chi \geq 0\)</span>, 1 otherwise</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></p>
@@ -293,15 +462,15 @@ between sample points along <span class="math notranslate">\(\chi\)</span></li>
 <dl class="function">
 <dt id="wme.solve1d.nu_s_W">
 <code class="descclassname">wme.solve1d.</code><code class="descname">nu_s_W</code><span class="sig-paren">(</span><em>W</em><span class="sig-paren">)</span><a class="headerlink" href="#wme.solve1d.nu_s_W" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dimensionless steady-state speed of the erosion front <span class="math notranslate">\(\nu_s(W)\)</span>.</p>
-<p>Assumes: <span class="math notranslate">\(\nu_s = \tfrac{1}{2}\left(1+\sqrt{1+4W}\right)\)</span></p>
+<dd><p>Dimensionless steady-state speed of the erosion front <span class="math notranslate nohighlight">\(\nu_s(W)\)</span>.</p>
+<p>Assumes: <span class="math notranslate nohighlight">\(\nu_s = \tfrac{1}{2}\left(1+\sqrt{1+4W}\right)\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate">\(W\)</span></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>W</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – weathering number <span class="math notranslate nohighlight">\(W\)</span></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dimensionless erosion rate <span class="math notranslate">\(\nu_s\)</span></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dimensionless erosion rate <span class="math notranslate nohighlight">\(\nu_s\)</span></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)">float</a></td>
 </tr>
@@ -573,23 +742,11 @@ between sample points along <span class="math notranslate">\(\chi\)</span></li>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Git cloning and setting the PYTHONPATH</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">How to compute 1d solutions</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1p1d.html"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -609,11 +766,11 @@ between sample points along <span class="math notranslate">\(\chi\)</span></li>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/solve1d.rst.txt"

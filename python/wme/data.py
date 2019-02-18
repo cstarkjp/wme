@@ -99,7 +99,7 @@ class ExptData:
         Attributes:
             data_set  (:obj:`str`)  : name of dataset in data dictionary
             dir_name  (:obj:`list`) : data source directory as platform-indepedent list
-            file_name (:obj:`str`)  : name of dataset in data dictionary
+            file_name (:obj:`str`)  : data source filename
             header    (:obj:`int`)  : number of header (column title etc) rows
             skiprows  (:obj:`int`)  : number of rows to skip when creating dataframe
     

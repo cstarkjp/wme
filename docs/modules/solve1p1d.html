@@ -9,11 +9,13 @@
     <title>solve1p1d.py &#8212; wme  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="plot.py" href="plot.html" />
@@ -72,50 +74,98 @@ erosion and 1+1d bedrock channel cross-section (at the channel wall).</p>
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.pdict">
 <code class="descname">pdict</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.pdict" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> – model parameters dictionary</p>
+<dd><p>model parameters dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.w0_eqn_z_calibrated">
 <code class="descname">w0_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.w0_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface weakness calibrated using model parameters:
-<span class="math notranslate">\(w_0 =  w_r H_s[z,z_\mathrm{wc},k_\mathrm{w}]\)</span>
+<dd><p>surface weakness calibrated using model parameters:
+<span class="math notranslate nohighlight">\(w_0 =  w_r H_s[z,z_\mathrm{wc},k_\mathrm{w}]\)</span>
 where
-<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_w(z-z_\mathrm{wc}]}\right)\)</span></p>
+<span class="math notranslate nohighlight">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_w(z-z_\mathrm{wc}]}\right)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.v0_eqn_z_calibrated">
 <code class="descname">v0_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.v0_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – erosion rate calibrated using model parameters:
-<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+<dd><p>erosion rate calibrated using model parameters:
+<span class="math notranslate nohighlight">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
 where
-<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<span class="math notranslate nohighlight">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.vs_eqn">
 <code class="descname">vs_eqn</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_eqn" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface-normal erosion rate (uncalibrated)
-<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+<dd><p>surface-normal erosion rate (uncalibrated)
+<span class="math notranslate nohighlight">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
 where
-<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<span class="math notranslate nohighlight">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.W_eqn_z_calibrated">
 <code class="descname">W_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.W_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering number calibrated using model parameters:
-<span class="math notranslate">\(W = \dfrac{w_0}{k v_0}\)</span></p>
+<dd><p>weathering number calibrated using model parameters:
+<span class="math notranslate nohighlight">\(W = \dfrac{w_0}{k v_0}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.vs_eqn_z_calibrated">
 <code class="descname">vs_eqn_z_calibrated</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_eqn_z_calibrated" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – surface-normal erosion rate calibrated using model parameters:
-<span class="math notranslate">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
+<dd><p>surface-normal erosion rate calibrated using model parameters:
+<span class="math notranslate nohighlight">\(v_0 =  v_r \left\{ (h-H_s[z,z_\mathrm{vc},k_\mathrm{v}])(1-v_b)+v_b \right\}\)</span>
 where
-<span class="math notranslate">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<span class="math notranslate nohighlight">\(H_s = \dfrac{1}{2}\left(1 + \tanh{[\kappa_v(z-z_\mathrm{vc}]}\right)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -127,33 +177,73 @@ where
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.vs_array">
 <code class="descname">vs_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.vs_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering-mediated surface-normal erosion rate along vertical profile
+<dd><p>weathering-mediated surface-normal erosion rate along vertical profile
 (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.dzdy_array">
 <code class="descname">dzdy_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.dzdy_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering-mediated vertical erosion rate along vertical profile
+<dd><p>weathering-mediated vertical erosion rate along vertical profile
 (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.y_array">
 <code class="descname">y_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.y_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – horizontal positions of sample points along vertica profile</p>
+<dd><p>horizontal positions of sample points along vertica profile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.ch_y_array">
 <code class="descname">ch_y_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.ch_y_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – horizontal positions of sample points along channel boundary</p>
+<dd><p>horizontal positions of sample points along channel boundary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.ch_z_array">
 <code class="descname">ch_z_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.ch_z_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – vertical positions of sample points along channel boundary</p>
+<dd><p>vertical positions of sample points along channel boundary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -173,52 +263,116 @@ where
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.n_pts">
 <code class="descname">n_pts</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.n_pts" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> – record of number of sampling points</p>
+<dd><p>record of number of sampling points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.z_array">
 <code class="descname">z_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.z_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – sample points along vertical profile</p>
+<dd><p>sample points along vertical profile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
 <code class="descname">vs_eqn_z_calibrated</code></dt>
-<dd><p><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a> – weathering-mediated surface-normal erosion rate at steady state
+<dd><p>weathering-mediated surface-normal erosion rate at steady state
 calibrated by model parameters supplied in <code class="xref py py-attr docutils literal notranslate"><span class="pre">wme.pdict</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.sympy.org/dev/modules/core.html#sympy.core.relational.Equality" title="(in SymPy v1.4.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.Eq</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.w0_array">
 <code class="descname">w0_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.w0_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – surface weakness along vertical profile (at steady state)</p>
+<dd><p>surface weakness along vertical profile (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.v0_array">
 <code class="descname">v0_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.v0_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – baseline (absent weathering-driven weakening) surface-normal erosion rate
+<dd><p>baseline (absent weathering-driven weakening) surface-normal erosion rate
 along vertical profile  (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
 <code class="descname">vs_array</code></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering-mediated surface-normal erosion rate along vertical profile
+<dd><p>weathering-mediated surface-normal erosion rate along vertical profile
 (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.eta0_array">
 <code class="descname">eta0_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.eta0_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – surface weakness along vertical profile (at steady state)</p>
+<dd><p>surface weakness along vertical profile (at steady state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="wme.solve1p1d.ChannelWall.W_array">
 <code class="descname">W_array</code><a class="headerlink" href="#wme.solve1p1d.ChannelWall.W_array" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – weathering number along vertical profile</p>
+<dd><p>weathering number along vertical profile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -416,21 +570,11 @@ along vertical profile  (at steady state)</p>
 
 
 
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/howtorun.html">Running</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="initialize.html"><code class="docutils literal notranslate"><span class="pre">initialize.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols.html"><code class="docutils literal notranslate"><span class="pre">symbols.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">data.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="solve1d.html"><code class="docutils literal notranslate"><span class="pre">solve1d.py</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">solve1p1d.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot.html"><code class="docutils literal notranslate"><span class="pre">plot.py</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="save.html"><code class="docutils literal notranslate"><span class="pre">save.py</span></code></a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -450,11 +594,11 @@ along vertical profile  (at steady state)</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, CPS.
+      &copy;2019, CPS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/modules/solve1p1d.rst.txt"
