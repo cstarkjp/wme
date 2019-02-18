@@ -54,7 +54,7 @@ Set up & execution
 ..  _Python3 package: 
       https://github.com/cstarkjp/wme/tree/master/python
 .. _Jupyter (IPython) notebook: 
-      https://github.com/cstarkjp/wme/blob/master/experiments1d/wme1d.ipynb
+      https://github.com/cstarkjp/wme/blob/master/experiments1d/WeatheringMediatedErosion1d.ipynb
 .. _code: https://github.com/cstarkjp/wme
 .. _wme: https://github.com/cstarkjp/wme
 .. _example results: 
